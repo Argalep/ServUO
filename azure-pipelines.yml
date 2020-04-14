@@ -24,9 +24,9 @@ steps:
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'ServUO_SonarCloud'
-    organization: 'serv-uo'
+    organization: 'servuo'
     scannerMode: 'MSBuild'
-    projectKey: 'ServUO_ServUO'
+    projectKey: 'ServUO'
 
 - task: VSBuild@1
   inputs:
