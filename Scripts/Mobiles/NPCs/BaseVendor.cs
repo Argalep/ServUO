@@ -69,7 +69,7 @@ namespace Server.Mobiles
         public override bool IsInvulnerable => true;
 
         public virtual DateTime NextTrickOrTreat { get; set; }
-        public virtual double GetMoveDelay => (double)Utility.RandomMinMax(30, 120);
+        public virtual double GetMoveDelay => Utility.RandomMinMax(30, 120);
 
         public override bool ShowFameTitle => false;
 
@@ -211,8 +211,8 @@ namespace Server.Mobiles
 
         private class BribeEntry : ContextMenuEntry
         {
-            private Mobile m_From;
-            private BaseVendor m_Vendor;
+            private readonly Mobile m_From;
+            private readonly BaseVendor m_Vendor;
 
             public BribeEntry(Mobile from, BaseVendor vendor)
                 : base(1152294, 2)
@@ -268,7 +268,7 @@ namespace Server.Mobiles
                 {
                     if (context.PointsMode == PointsMode.Enabled)
                     {
-                        m_From.SendGump(new ConfirmBankPointsGump((PlayerMobile)m_From, m_Vendor, m_Vendor.BODType, pending, (double)pending * 0.02));
+                        m_From.SendGump(new ConfirmBankPointsGump((PlayerMobile)m_From, m_Vendor, m_Vendor.BODType, pending, pending * 0.02));
                     }
                     else
                     {
@@ -2461,7 +2461,7 @@ namespace Server.Mobiles
         #region Mage Armor Conversion
         public virtual bool ConvertsMageArmor => false;
 
-        private List<PendingConvert> _PendingConvertEntries = new List<PendingConvert>();
+        private readonly List<PendingConvert> _PendingConvertEntries = new List<PendingConvert>();
 
         private bool CheckConvertArmor(Mobile from, BaseArmor armor)
         {

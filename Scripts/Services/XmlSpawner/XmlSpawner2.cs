@@ -99,7 +99,7 @@ namespace Server.Mobiles
         private static int defHomeRange = 5;
         private static double defTriggerProbability = 1;
         private static int defProximityRange = -1;
-        private static int defKillReset = 1;
+        private static readonly int defKillReset = 1;
         private static TODModeType defTODMode = TODModeType.Realtime;
 
         private static Timer m_GlobalSectorTimer;
@@ -113,7 +113,7 @@ namespace Server.Mobiles
         public static int seccount;
 
         // sector hashtable for each map
-        private static Dictionary<Sector, List<XmlSpawner>>[] GlobalSectorTable = new Dictionary<Sector, List<XmlSpawner>>[6];
+        private static readonly Dictionary<Sector, List<XmlSpawner>>[] GlobalSectorTable = new Dictionary<Sector, List<XmlSpawner>>[6];
 
         #endregion
 
@@ -349,7 +349,7 @@ namespace Server.Mobiles
             }
         }
 
-        private bool sectorIsActive = false;
+        private readonly bool sectorIsActive = false;
         private bool UseSectorActivate = false;
 
         public bool SingleSector => UseSectorActivate;
@@ -687,7 +687,7 @@ namespace Server.Mobiles
         {
             get
             {
-                if (TriggerMob != null && (int)m_skill_that_triggered >= 0)
+                if (TriggerMob != null && m_skill_that_triggered >= 0)
                 {
                     return TriggerMob.Skills[m_skill_that_triggered];
                 }
@@ -2136,7 +2136,7 @@ namespace Server.Mobiles
 
                 for (int i = 0; i < states.Count; ++i)
                 {
-                    Mobile m = ((NetState)states[i]).Mobile;
+                    Mobile m = states[i].Mobile;
 
                     if (m != null && m.HasGump(typeof(XmlSpawnerGump)))
                     {
@@ -2735,28 +2735,24 @@ namespace Server.Mobiles
 
 #if (TRACE)
 
-        string setname1 = _traceName[1] = "XmlFind";
-        string setname2 = _traceName[2] = "HasSector";
-
-        string setname4 = _traceName[4] = "AttachSpeech";
-        string setname5 = _traceName[5] = "HasHold";
-
-
-        string setname8 = _traceName[8] = "OnTick";
-        string setname9 = _traceName[9] = "Defrag";
-        string setname10 = _traceName[10] = "Respawn";
-        string setname11 = _traceName[11] = "SetProp";
-        string setname12 = _traceName[12] = "AttachMovement";
-        string setname13 = _traceName[13] = "ActiveSector";
-
-        string setname15 = _traceName[15] = "DistroTick";
-        string setname16 = _traceName[16] = "GetScaledFaction";
-        string setname17 = _traceName[17] = "FactionOnKill";
-        string setname18 = _traceName[18] = "CheckAcquire";
+        readonly string setname1 = _traceName[1] = "XmlFind";
+        readonly string setname2 = _traceName[2] = "HasSector";
+        readonly string setname4 = _traceName[4] = "AttachSpeech";
+        readonly string setname5 = _traceName[5] = "HasHold";
+        readonly string setname8 = _traceName[8] = "OnTick";
+        readonly string setname9 = _traceName[9] = "Defrag";
+        readonly string setname10 = _traceName[10] = "Respawn";
+        readonly string setname11 = _traceName[11] = "SetProp";
+        readonly string setname12 = _traceName[12] = "AttachMovement";
+        readonly string setname13 = _traceName[13] = "ActiveSector";
+        readonly string setname15 = _traceName[15] = "DistroTick";
+        readonly string setname16 = _traceName[16] = "GetScaledFaction";
+        readonly string setname17 = _traceName[17] = "FactionOnKill";
+        readonly string setname18 = _traceName[18] = "CheckAcquire";
 
 
         private const int MaxTraces = 20;
-        private static DateTime[] _traceStart = new DateTime[MaxTraces];
+        private static readonly DateTime[] _traceStart = new DateTime[MaxTraces];
         public static TimeSpan[] _traceTotal = new TimeSpan[MaxTraces];
         public static string[] _traceName = new string[MaxTraces];
         public static int[] _traceCount = new int[MaxTraces];
@@ -3133,7 +3129,7 @@ namespace Server.Mobiles
 
         private class MovementTimer : Timer
         {
-            private XmlSpawner m_Spawner;
+            private readonly XmlSpawner m_Spawner;
 
             public MovementTimer(XmlSpawner spawner, TimeSpan delay)
                 : base(delay)
@@ -3598,7 +3594,7 @@ namespace Server.Mobiles
         }
         private class GetValueTarget : Target
         {
-            private CommandEventArgs m_e;
+            private readonly CommandEventArgs m_e;
             public GetValueTarget(CommandEventArgs e)
                 : base(30, false, TargetFlags.None)
             {
@@ -3659,7 +3655,7 @@ namespace Server.Mobiles
 
         private class TagListTarget : Target
         {
-            private CommandEventArgs m_e;
+            private readonly CommandEventArgs m_e;
 
             public TagListTarget(CommandEventArgs e)
                 : base(30, false, TargetFlags.None)
@@ -3689,7 +3685,7 @@ namespace Server.Mobiles
         // added in targeting for the [xmlhome command
         private class XmlHomeTarget : Target
         {
-            private CommandEventArgs m_e;
+            private readonly CommandEventArgs m_e;
             public XmlHomeTarget(CommandEventArgs e)
                 : base(30, false, TargetFlags.None)
             {
@@ -6240,7 +6236,7 @@ namespace Server.Mobiles
                             TODModeType SpawnTODMode = TODModeType.Realtime;
                             try { todmode = int.Parse((string)dr["TODMode"]); }
                             catch { }
-                            switch ((int)todmode)
+                            switch (todmode)
                             {
                                 case (int)TODModeType.Gametime:
                                     SpawnTODMode = TODModeType.Gametime;
@@ -7272,13 +7268,13 @@ namespace Server.Mobiles
                 DataRow dr = ds.Tables[SpawnTablePointName].NewRow();
 
                 // Populate the data
-                dr["Name"] = (string)sp.Name;
+                dr["Name"] = sp.Name;
 
                 // Set the unqiue id
-                dr["UniqueId"] = (string)sp.m_UniqueId;
+                dr["UniqueId"] = sp.m_UniqueId;
 
                 // Get the map name
-                dr["Map"] = (string)sp.Map.Name;
+                dr["Map"] = sp.Map.Name;
 
                 // Convert the xml map value to a real map object
                 if (string.Compare(sp.Map.Name, Map.Trammel.Name, true) == 0)
@@ -7294,34 +7290,34 @@ namespace Server.Mobiles
                 else
                     OtherCount++;
 
-                dr["X"] = (int)sp.m_X;
-                dr["Y"] = (int)sp.m_Y;
-                dr["Width"] = (int)sp.m_Width;
-                dr["Height"] = (int)sp.m_Height;
+                dr["X"] = sp.m_X;
+                dr["Y"] = sp.m_Y;
+                dr["Width"] = sp.m_Width;
+                dr["Height"] = sp.m_Height;
 
                 // check to see if this is in a container
                 if (sp.RootParent is Container)
                 {
-                    dr["CentreX"] = (int)(((Container)(sp.RootParent)).Location.X);
-                    dr["CentreY"] = (int)(((Container)(sp.RootParent)).Location.Y);
-                    dr["CentreZ"] = (int)(((Container)(sp.RootParent)).Location.Z);
-                    dr["ContainerX"] = (int)(sp.Location.X);
-                    dr["ContainerY"] = (int)(sp.Location.Y);
-                    dr["ContainerZ"] = (int)(sp.Location.Z);
+                    dr["CentreX"] = ((Container)(sp.RootParent)).Location.X;
+                    dr["CentreY"] = ((Container)(sp.RootParent)).Location.Y;
+                    dr["CentreZ"] = ((Container)(sp.RootParent)).Location.Z;
+                    dr["ContainerX"] = sp.Location.X;
+                    dr["ContainerY"] = sp.Location.Y;
+                    dr["ContainerZ"] = sp.Location.Z;
                     dr["InContainer"] = true;
                 }
                 else
                 {
-                    dr["CentreX"] = (int)sp.Location.X;
-                    dr["CentreY"] = (int)sp.Location.Y;
-                    dr["CentreZ"] = (int)sp.Location.Z;
+                    dr["CentreX"] = sp.Location.X;
+                    dr["CentreY"] = sp.Location.Y;
+                    dr["CentreZ"] = sp.Location.Z;
                     //dr["ContainerX"] = 0;
                     //dr["ContainerY"] = 0;
                     //dr["ContainerZ"] = 0;
                     dr["InContainer"] = false;
                 }
-                dr["Range"] = (int)sp.m_HomeRange;
-                dr["MaxCount"] = (int)sp.m_Count;
+                dr["Range"] = sp.m_HomeRange;
+                dr["MaxCount"] = sp.m_Count;
 
                 // need to deal with the fact that the old xmlspawner xml format only saved delays in minutes as ints, so shorter spawn times
                 // are lost
@@ -7342,18 +7338,18 @@ namespace Server.Mobiles
                 }
 
                 // additional parameters
-                dr["TODStart"] = (double)sp.m_TODStart.TotalMinutes;
-                dr["TODEnd"] = (double)sp.m_TODEnd.TotalMinutes;
+                dr["TODStart"] = sp.m_TODStart.TotalMinutes;
+                dr["TODEnd"] = sp.m_TODEnd.TotalMinutes;
                 dr["TODMode"] = (int)sp.m_TODMode;
-                dr["KillReset"] = (int)sp.m_KillReset;
-                dr["MinRefractory"] = (double)sp.m_MinRefractory.TotalMinutes;
-                dr["MaxRefractory"] = (double)sp.m_MaxRefractory.TotalMinutes;
-                dr["Duration"] = (double)sp.m_Duration.TotalMinutes;
-                dr["DespawnTime"] = (double)sp.m_DespawnTime.TotalHours;
-                dr["ExternalTriggering"] = (bool)sp.m_ExternalTriggering;
+                dr["KillReset"] = sp.m_KillReset;
+                dr["MinRefractory"] = sp.m_MinRefractory.TotalMinutes;
+                dr["MaxRefractory"] = sp.m_MaxRefractory.TotalMinutes;
+                dr["Duration"] = sp.m_Duration.TotalMinutes;
+                dr["DespawnTime"] = sp.m_DespawnTime.TotalHours;
+                dr["ExternalTriggering"] = sp.m_ExternalTriggering;
 
-                dr["ProximityRange"] = (int)sp.m_ProximityRange;
-                dr["ProximityTriggerSound"] = (int)sp.m_ProximityTriggerSound;
+                dr["ProximityRange"] = sp.m_ProximityRange;
+                dr["ProximityTriggerSound"] = sp.m_ProximityTriggerSound;
                 dr["ProximityTriggerMessage"] = sp.m_ProximityTriggerMessage;
                 if (sp.m_ObjectPropertyItem != null && !sp.m_ObjectPropertyItem.Deleted)
                     dr["ObjectPropertyItemName"] = String.Format("{0},{1}", sp.m_ObjectPropertyItem.Name,
@@ -7383,8 +7379,8 @@ namespace Server.Mobiles
 
                 dr["SpeechTrigger"] = sp.m_SpeechTrigger;
                 dr["SkillTrigger"] = sp.m_SkillTrigger;
-                dr["Amount"] = (int)sp.m_StackAmount;
-                dr["Team"] = (int)sp.m_Team;
+                dr["Amount"] = sp.m_StackAmount;
+                dr["Team"] = sp.m_Team;
 
                 // assign the waypoint based on the waypoint name if it deviates from the default waypoint name, otherwise do it by serial
                 string waystr = null;
@@ -7401,16 +7397,16 @@ namespace Server.Mobiles
                 }
                 dr["WayPoint"] = waystr;
 
-                dr["IsGroup"] = (bool)sp.m_Group;
-                dr["IsRunning"] = (bool)sp.m_Running;
-                dr["IsHomeRangeRelative"] = (bool)sp.m_HomeRangeIsRelative;
+                dr["IsGroup"] = sp.m_Group;
+                dr["IsRunning"] = sp.m_Running;
+                dr["IsHomeRangeRelative"] = sp.m_HomeRangeIsRelative;
                 if (oldformat)
                 {
-                    dr["Objects"] = (string)sp.GetSerializedObjectList();
+                    dr["Objects"] = sp.GetSerializedObjectList();
                 }
                 else
                 {
-                    dr["Objects2"] = (string)sp.GetSerializedObjectList2();
+                    dr["Objects2"] = sp.GetSerializedObjectList2();
                 }
 
                 // Add the row the the table
@@ -7648,10 +7644,10 @@ namespace Server.Mobiles
                     double load = 0;
                     if (processtime > 0)
                     {
-                        load = ((double)XmlSpawner._traceTotal[i].TotalMilliseconds) / processtime;
+                        load = _traceTotal[i].TotalMilliseconds / processtime;
                     }
                     Console.WriteLine("{0} ({4}) {1,21} / {2} calls = {3:####.####} ms/call, {5:p3}",
-                   i, XmlSpawner._traceTotal[i], XmlSpawner._traceCount[i], ((double)XmlSpawner._traceTotal[i].TotalMilliseconds) / XmlSpawner._traceCount[i],
+                   i, XmlSpawner._traceTotal[i], XmlSpawner._traceCount[i], _traceTotal[i].TotalMilliseconds / XmlSpawner._traceCount[i],
                    XmlSpawner._traceName[i], load);
                 }
             }
@@ -11226,7 +11222,7 @@ namespace Server.Mobiles
 
         private class SectorTimer : Timer
         {
-            private XmlSpawner m_Spawner;
+            private readonly XmlSpawner m_Spawner;
 
             public SectorTimer(XmlSpawner spawner, TimeSpan delay)
                 : base(delay, delay)
@@ -11266,7 +11262,7 @@ namespace Server.Mobiles
 
         private class WarnTimer2 : Timer
         {
-            private List<XmlSpawner.WarnTimer2.WarnEntry2> m_List;
+            private readonly List<XmlSpawner.WarnTimer2.WarnEntry2> m_List;
 
             private class WarnEntry2
             {
@@ -11372,7 +11368,7 @@ namespace Server.Mobiles
         // added the duration timer that begins on spawning
         private class InternalTimer : Timer
         {
-            private XmlSpawner m_spawner;
+            private readonly XmlSpawner m_spawner;
 
             public InternalTimer(XmlSpawner spawner, TimeSpan delay)
                 : base(delay)
@@ -11394,7 +11390,7 @@ namespace Server.Mobiles
 
         private class SpawnerTimer : Timer
         {
-            private XmlSpawner m_Spawner;
+            private readonly XmlSpawner m_Spawner;
 
             public SpawnerTimer(XmlSpawner spawner, TimeSpan delay)
                 : base(delay)
@@ -11426,7 +11422,7 @@ namespace Server.Mobiles
         // added the refractory timer that begins on proximity triggering
         private class InternalTimer3 : Timer
         {
-            private XmlSpawner m_spawner;
+            private readonly XmlSpawner m_spawner;
 
             public InternalTimer3(XmlSpawner spawner, TimeSpan delay)
                 : base(delay)
@@ -11452,8 +11448,8 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.Write((int)31); // version
-                                   // version 31
+            writer.Write(31); // version
+                              // version 31
             writer.Write(m_DisableGlobalAutoReset);
             // Version 30
             writer.Write(m_AllowNPCTriggering);
@@ -11471,7 +11467,7 @@ namespace Server.Mobiles
             else
             {
                 // empty spawner
-                writer.Write((int)0);
+                writer.Write(0);
             }
 
             // Version 28
@@ -11690,8 +11686,8 @@ namespace Server.Mobiles
                 SpawnObject so = m_SpawnObjects[i];
 
                 // Write the type and maximum count
-                writer.Write((string)so.TypeName);
-                writer.Write((int)so.ActualMaxCount);
+                writer.Write(so.TypeName);
+                writer.Write(so.ActualMaxCount);
 
                 // Write the spawned object information
                 writer.Write(so.SpawnedObjects.Count);

@@ -2039,7 +2039,7 @@ namespace Server.Mobiles
             if (Race != Race.Gargoyle || Hits > HitsMax / 2)
                 return 0;
 
-            double perc = ((double)Hits / (double)HitsMax) * 100;
+            double perc = (Hits / (double)HitsMax) * 100;
             int value = 0;
 
             perc = (100 - perc) / 20;
@@ -2650,10 +2650,10 @@ namespace Server.Mobiles
 
         private class ItemInsuranceMenuGump : Gump
         {
-            private PlayerMobile m_From;
-            private Item[] m_Items;
-            private bool[] m_Insure;
-            private int m_Page;
+            private readonly PlayerMobile m_From;
+            private readonly Item[] m_Items;
+            private readonly bool[] m_Insure;
+            private readonly int m_Page;
 
             public ItemInsuranceMenuGump(PlayerMobile from, Item[] items)
                 : this(from, items, null, 0)
@@ -2821,10 +2821,10 @@ namespace Server.Mobiles
 
         private class ItemInsuranceMenuConfirmGump : Gump
         {
-            private PlayerMobile m_From;
-            private Item[] m_Items;
-            private bool[] m_Insure;
-            private int m_Page;
+            private readonly PlayerMobile m_From;
+            private readonly Item[] m_Items;
+            private readonly bool[] m_Insure;
+            private readonly int m_Page;
 
             public ItemInsuranceMenuConfirmGump(PlayerMobile from, Item[] items, bool[] insure, int page)
                 : base(250, 200)
@@ -3723,10 +3723,10 @@ namespace Server.Mobiles
             if (killer != null && Murderer && DateTime.UtcNow >= killer.m_NextJustAward)
             {
                 // This scales 700.0 skill points to 1000 valor points
-                int pointsToGain = (int)(SkillsTotal / 7);
+                int pointsToGain = SkillsTotal / 7;
 
                 // This scales 700.0 skill points to 7 minutes wait
-                int minutesToWait = Math.Max(1, (int)(SkillsTotal / 1000));
+                int minutesToWait = Math.Max(1, SkillsTotal / 1000);
 
                 bool gainedPath = false;
 
@@ -4724,7 +4724,7 @@ namespace Server.Mobiles
 
             writer.Write(40); // version
 
-            writer.Write((DateTime)NextGemOfSalvationUse);
+            writer.Write(NextGemOfSalvationUse);
 
             writer.Write((int)m_ExtendedFlags);
 
@@ -5534,9 +5534,9 @@ namespace Server.Mobiles
         }
 
         #region Fastwalk Prevention
-        private static bool FastwalkPrevention = true; // Is fastwalk prevention enabled?
+        private static readonly bool FastwalkPrevention = true; // Is fastwalk prevention enabled?
 
-        private static int FastwalkThreshold = 400; // Fastwalk prevention will become active after 0.4 seconds
+        private static readonly int FastwalkThreshold = 400; // Fastwalk prevention will become active after 0.4 seconds
 
         private long m_NextMovementTime;
         private bool m_HasMoved;

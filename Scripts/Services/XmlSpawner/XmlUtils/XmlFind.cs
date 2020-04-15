@@ -28,9 +28,9 @@ namespace Server.Mobiles
 
         public class XmlFindThread
         {
-            SearchCriteria m_SearchCriteria;
-            Mobile m_From;
-            string m_commandstring;
+            readonly SearchCriteria m_SearchCriteria;
+            readonly Mobile m_From;
+            readonly string m_commandstring;
 
             public XmlFindThread(Mobile from, SearchCriteria criteria, string commandstring)
             {
@@ -167,15 +167,15 @@ namespace Server.Mobiles
             }
         }
 
-        private SearchCriteria m_SearchCriteria;
+        private readonly SearchCriteria m_SearchCriteria;
         private bool Sorttype;
         private bool Sortrange;
         private bool Sortname;
         private bool Sortmap;
         private bool Sortselect;
-        private Mobile m_From;
+        private readonly Mobile m_From;
         private Point3D StartingLoc;
-        private Map StartingMap;
+        private readonly Map StartingMap;
         private bool m_ShowExtension;
         private bool Descendingsort;
         private int Selected;
@@ -1169,14 +1169,14 @@ namespace Server.Mobiles
 
 
                 // add the page buttons
-                for (int i = 0; i < (int)(MaxEntries / MaxEntriesPerPage); i++)
+                for (int i = 0; i < MaxEntries / MaxEntriesPerPage; i++)
                 {
                     //AddButton( 38+i*30, 365, 2206, 2206, 0, GumpButtonType.Page, 1+i );
                     AddButton(418 + i * 25, height - 25, 0x8B1 + i, 0x8B1 + i, 0, GumpButtonType.Page, 1 + i);
                 }
 
                 // add the advance pageblock buttons
-                AddButton(415 + 25 * (int)(MaxEntries / MaxEntriesPerPage), height - 25, 0x15E1, 0x15E5, 201, GumpButtonType.Reply, 0); // block forward
+                AddButton(415 + 25 * (MaxEntries / MaxEntriesPerPage), height - 25, 0x15E1, 0x15E5, 201, GumpButtonType.Reply, 0); // block forward
                 AddButton(395, height - 25, 0x15E3, 0x15E7, 202, GumpButtonType.Reply, 0); // block backward
 
                 // add the displayfrom entry
@@ -1214,7 +1214,7 @@ namespace Server.Mobiles
 
                     SearchEntry e = (SearchEntry)m_SearchList[index];
 
-                    int page = (int)(i / MaxEntriesPerPage);
+                    int page = i / MaxEntriesPerPage;
 
                     if (i % MaxEntriesPerPage == 0)
                     {
@@ -1483,7 +1483,7 @@ namespace Server.Mobiles
 
         private class ListTypeSorter : IComparer
         {
-            private bool Dsort;
+            private readonly bool Dsort;
 
             public ListTypeSorter(bool descend)
                 : base()
@@ -1542,7 +1542,7 @@ namespace Server.Mobiles
 
         private class ListNameSorter : IComparer
         {
-            private bool Dsort;
+            private readonly bool Dsort;
 
             public ListNameSorter(bool descend)
                 : base()
@@ -1590,7 +1590,7 @@ namespace Server.Mobiles
 
         private class ListMapSorter : IComparer
         {
-            private bool Dsort;
+            private readonly bool Dsort;
 
             public ListMapSorter(bool descend)
                 : base()
@@ -1642,7 +1642,7 @@ namespace Server.Mobiles
 
         private class ListEntrySorter : IComparer
         {
-            private bool Dsort;
+            private readonly bool Dsort;
 
             public ListEntrySorter(bool descend)
                 : base()
@@ -1658,8 +1658,8 @@ namespace Server.Mobiles
 
         private class ListRangeSorter : IComparer
         {
-            private Mobile From;
-            private bool Dsort;
+            private readonly Mobile From;
+            private readonly bool Dsort;
 
             public ListRangeSorter(Mobile from, bool descend)
                 : base()
@@ -1727,8 +1727,8 @@ namespace Server.Mobiles
 
         private class ListSelectSorter : IComparer
         {
-            private Mobile From;
-            private bool Dsort;
+            private readonly Mobile From;
+            private readonly bool Dsort;
 
             public ListSelectSorter(Mobile from, bool descend)
                 : base()
@@ -2234,9 +2234,9 @@ namespace Server.Mobiles
 
         public class XmlConfirmBringGump : Gump
         {
-            private ArrayList SearchList;
+            private readonly ArrayList SearchList;
 
-            private Mobile From;
+            private readonly Mobile From;
 
             public XmlConfirmBringGump(Mobile from, ArrayList searchlist)
                 : base(0, 0)
@@ -2318,9 +2318,9 @@ namespace Server.Mobiles
 
         public class XmlConfirmDeleteGump : Gump
         {
-            private ArrayList SearchList;
+            private readonly ArrayList SearchList;
 
-            private Mobile From;
+            private readonly Mobile From;
 
             public XmlConfirmDeleteGump(Mobile from, ArrayList searchlist)
                 : base(0, 0)

@@ -74,7 +74,7 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
@@ -94,7 +94,7 @@ namespace Server.Items
     {
         private string m_Title;
         private string m_Author;
-        private BookPageInfo[] m_Pages;
+        private readonly BookPageInfo[] m_Pages;
         private bool m_Writable;
 
         [CommandProperty(AccessLevel.GameMaster)]
@@ -148,7 +148,7 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
@@ -315,7 +315,7 @@ namespace Server.Items
         {
             EnsureCapacity(256);
 
-            m_Stream.Write((int)book.Serial);
+            m_Stream.Write(book.Serial);
             m_Stream.Write((ushort)book.PagesCount);
 
             for (int i = 0; i < book.PagesCount; ++i)
@@ -348,9 +348,9 @@ namespace Server.Items
 
             EnsureCapacity(15 + titleBuffer.Length + authorBuffer.Length);
 
-            m_Stream.Write((int)book.Serial);
-            m_Stream.Write((bool)true);
-            m_Stream.Write((bool)book.Writable && from.InRange(book.GetWorldLocation(), 1));
+            m_Stream.Write(book.Serial);
+            m_Stream.Write(true);
+            m_Stream.Write(book.Writable && from.InRange(book.GetWorldLocation(), 1));
             m_Stream.Write((ushort)book.PagesCount);
 
             m_Stream.Write((ushort)(titleBuffer.Length + 1));

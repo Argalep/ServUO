@@ -682,7 +682,7 @@ namespace Server.Mobiles
         }
 
         public static Type[] SlotLowerables => _SlotLowerables;
-        private static Type[] _SlotLowerables =
+        private static readonly Type[] _SlotLowerables =
         {
             typeof(Nightmare), typeof(Najasaurus), typeof(RuneBeetle), typeof(GreaterDragon), typeof(FrostDragon),
             typeof(WhiteWyrm), typeof(Reptalon), typeof(DragonTurtleHatchling), typeof(Phoenix), typeof(FrostMite),
@@ -716,7 +716,7 @@ namespace Server.Mobiles
 
             double total = _InitAverage.Sum(d => d);
 
-            if (total / (double)_InitAverage.Count <= AverageThreshold)
+            if (total / _InitAverage.Count <= AverageThreshold)
             {
                 ControlSlotsMin = Math.Max(1, ControlSlotsMin - 1);
             }
@@ -1531,7 +1531,7 @@ namespace Server.Mobiles
 
             if (SubdueBeforeTame && !Controlled)
             {
-                if ((oldHits > ((double)HitsMax / 10)) && ((double)Hits <= ((double)HitsMax / 10)))
+                if ((oldHits > ((double)HitsMax / 10)) && (Hits <= ((double)HitsMax / 10)))
                 {
                     PublicOverheadMessage(MessageType.Regular, 0x3B2, false, "* The creature has been beaten into subjugation! *");
                 }
@@ -1974,11 +1974,11 @@ namespace Server.Mobiles
 
                 if (special)
                 {
-                    feathers = (int)Math.Ceiling((double)feathers * 1.1);
-                    wool = (int)Math.Ceiling((double)wool * 1.1);
-                    hides = (int)Math.Ceiling((double)hides * 1.1);
-                    meat = (int)Math.Ceiling((double)meat * 1.1);
-                    scales = (int)Math.Ceiling((double)scales * 1.1);
+                    feathers = (int)Math.Ceiling(feathers * 1.1);
+                    wool = (int)Math.Ceiling(wool * 1.1);
+                    hides = (int)Math.Ceiling(hides * 1.1);
+                    meat = (int)Math.Ceiling(meat * 1.1);
+                    scales = (int)Math.Ceiling(scales * 1.1);
                 }
 
                 new Blood(0x122D).MoveToWorld(corpse.Location, corpse.Map);
@@ -2868,7 +2868,7 @@ namespace Server.Mobiles
             typeof(Squash), typeof(Cantaloupe), typeof(Carrot), typeof(Cabbage), typeof(Onion), typeof(Lettuce), typeof(Pumpkin)
         };
 
-        private static Type[] m_Gold = new[]
+        private static readonly Type[] m_Gold = new[]
         {
 			// white wyrms eat gold..
 			typeof(Gold)
@@ -3308,7 +3308,7 @@ namespace Server.Mobiles
 
         private class CharmTimer : Timer
         {
-            private BaseCreature m_Owner;
+            private readonly BaseCreature m_Owner;
             private int m_Count;
 
             public CharmTimer(BaseCreature owner)
@@ -3904,8 +3904,8 @@ namespace Server.Mobiles
 
         private class RenameEntry : ContextMenuEntry
         {
-            private Mobile m_From;
-            private BaseCreature m_Creature;
+            private readonly Mobile m_From;
+            private readonly BaseCreature m_Creature;
 
             public RenameEntry(Mobile from, BaseCreature creature)
                 : base(1111680, 6)
@@ -3925,7 +3925,7 @@ namespace Server.Mobiles
         {
             public override int MessageCliloc => 1115558; // Enter a new name for your pet.
 
-            private BaseCreature m_Creature;
+            private readonly BaseCreature m_Creature;
 
             public PetRenamePrompt(BaseCreature creature)
                 : base(creature)
@@ -5755,7 +5755,7 @@ namespace Server.Mobiles
                 int topDamage = rights[0].m_Damage;
                 int minDamage;
 
-                minDamage = (int)((double)topDamage * 0.06);
+                minDamage = (int)(topDamage * 0.06);
 
                 for (int i = 0; i < rights.Count; ++i)
                 {
@@ -6320,7 +6320,7 @@ namespace Server.Mobiles
             return true;
         }
 
-        private static bool EnableRummaging = true;
+        private static readonly bool EnableRummaging = true;
 
         private const double ChanceToRummage = 0.5; // 50%
 
@@ -6803,7 +6803,7 @@ namespace Server.Mobiles
 
         public virtual bool TeleportsPets => false;
 
-        private static int[] m_Offsets = new int[]
+        private static readonly int[] m_Offsets = new int[]
             {
                 -1, -1,
                 -1,  0,
