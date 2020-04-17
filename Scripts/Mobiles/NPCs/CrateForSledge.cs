@@ -6,8 +6,8 @@ namespace Server.Items
         public CrateForSledge()
             : base(0x1FFF)
         {
-            this.Weight = 5.0;
-            this.LootType = LootType.Blessed;
+            Weight = 5.0;
+            LootType = LootType.Blessed;
         }
 
         public CrateForSledge(Serial serial)
@@ -15,13 +15,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074520;
-            }
-        }// Crate for Sledge
+        public override int LabelNumber => 1074520;// Crate for Sledge
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

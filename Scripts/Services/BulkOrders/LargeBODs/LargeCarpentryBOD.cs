@@ -4,7 +4,7 @@ namespace Server.Engines.BulkOrders
 {
     public class LargeCarpentryBOD : LargeBOD
     {
-        public override BODType BODType { get { return BODType.Carpentry; } }
+        public override BODType BODType => BODType.Carpentry;
 
         public static double[] m_CarpentryingMaterialChances = new double[]
         {
@@ -60,20 +60,20 @@ namespace Server.Engines.BulkOrders
             else
                 material = BulkMaterialType.None;
 
-            this.Hue = hue;
-            this.AmountMax = amountMax;
-            this.Entries = entries;
-            this.RequireExceptional = reqExceptional;
-            this.Material = material;
+            Hue = hue;
+            AmountMax = amountMax;
+            Entries = entries;
+            RequireExceptional = reqExceptional;
+            Material = material;
         }
 
         public LargeCarpentryBOD(int amountMax, bool reqExceptional, BulkMaterialType mat, LargeBulkEntry[] entries)
         {
-            this.Hue = 1512;
-            this.AmountMax = amountMax;
-            this.Entries = entries;
-            this.RequireExceptional = reqExceptional;
-            this.Material = mat;
+            Hue = 1512;
+            AmountMax = amountMax;
+            Entries = entries;
+            RequireExceptional = reqExceptional;
+            Material = mat;
         }
 
         public LargeCarpentryBOD(Serial serial)

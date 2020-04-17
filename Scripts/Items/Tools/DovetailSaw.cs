@@ -9,14 +9,14 @@ namespace Server.Items
         public DovetailSaw()
             : base(0x1028)
         {
-            this.Weight = 2.0;
+            Weight = 2.0;
         }
 
         [Constructable]
         public DovetailSaw(int uses)
             : base(uses, 0x1028)
         {
-            this.Weight = 2.0;
+            Weight = 2.0;
         }
 
         public DovetailSaw(Serial serial)
@@ -24,13 +24,7 @@ namespace Server.Items
         {
         }
 
-        public override CraftSystem CraftSystem
-        {
-            get
-            {
-                return DefCarpentry.CraftSystem;
-            }
-        }
+        public override CraftSystem CraftSystem => DefCarpentry.CraftSystem;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -44,8 +38,8 @@ namespace Server.Items
 
             int version = reader.ReadInt();
 
-            if (this.Weight == 1.0)
-                this.Weight = 2.0;
+            if (Weight == 1.0)
+                Weight = 2.0;
         }
     }
 }

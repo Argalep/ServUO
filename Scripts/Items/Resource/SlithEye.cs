@@ -12,8 +12,8 @@ namespace Server.Items
         public SlithEye(int amount)
             : base(0x5749)
         {
-            this.Stackable = true;
-            this.Amount = amount;
+            Stackable = true;
+            Amount = amount;
         }
 
         public SlithEye(Serial serial)
@@ -21,13 +21,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1112396;
-            }
-        }// slith's eye
+        public override int LabelNumber => 1112396;// slith's eye
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

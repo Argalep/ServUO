@@ -4,15 +4,15 @@ namespace Server.Items
 {
     public class IceWyrmScale : BaseDecayingItem
     {
-        public override int LabelNumber { get { return 1154224; } } // Ice Wyrm Scale
+        public override int LabelNumber => 1154224;  // Ice Wyrm Scale
 
         [Constructable]
         public IceWyrmScale()
             : base(0x26B2)
         {
-            this.LootType = LootType.Blessed;
-            this.Hue = 2729;
-            this.Weight = 20.0;
+            LootType = LootType.Blessed;
+            Hue = 2729;
+            Weight = 20.0;
         }
 
         public override void OnDoubleClick(Mobile from)
@@ -29,7 +29,7 @@ namespace Server.Items
             list.Add(1072351); // Quest Item
         }
 
-        public override int Lifespan { get { return 3600; } }
+        public override int Lifespan => 3600;
 
         public IceWyrmScale(Serial serial)
             : base(serial)

@@ -10,7 +10,7 @@ namespace Server.Items
     [Flipable(0xA50F, 0xA510)]
     public class CowStatue : Item, ISecurable
     {
-        public override int LabelNumber { get { return 1072494; } } // Cow
+        public override int LabelNumber => 1072494;  // Cow
 
         [CommandProperty(AccessLevel.GameMaster)]
         public DateTime NextResourceCount { get; set; }
@@ -63,7 +63,7 @@ namespace Server.Items
 
         public override void OnDoubleClick(Mobile from)
         {
-            var house = BaseHouse.FindHouseAt(this);
+            BaseHouse house = BaseHouse.FindHouseAt(this);
 
             if (house == null || !house.IsLockedDown(this))
             {

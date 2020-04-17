@@ -12,8 +12,8 @@ namespace Server.Items
         public CrushedGlass(int amount)
             : base(0x573B)
         {
-            this.Stackable = true;
-            this.Amount = amount;
+            Stackable = true;
+            Amount = amount;
         }
 
         public CrushedGlass(Serial serial)
@@ -21,16 +21,10 @@ namespace Server.Items
         {
         }
 
-        TextDefinition ICommodity.Description { get { return LabelNumber; } }
-        bool ICommodity.IsDeedable { get { return true; } }
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => true;
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1113351;
-            }
-        }// crushed glass
+        public override int LabelNumber => 1113351;// crushed glass
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

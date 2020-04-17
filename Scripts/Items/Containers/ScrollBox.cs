@@ -6,8 +6,8 @@ namespace Server.Items
         public ScrollBox()
             : base()
         {
-            this.Movable = true;
-            this.Hue = 1151;
+            Movable = true;
+            Hue = 1151;
 
             DropItem(new PowerScroll(SkillName.Imbuing, 115.0));
 
@@ -67,13 +67,7 @@ namespace Server.Items
         {
         }
 
-        public override string DefaultName
-        {
-            get
-            {
-                return "Reward Scroll Box";
-            }
-        }
+        public override string DefaultName => "Reward Scroll Box";
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

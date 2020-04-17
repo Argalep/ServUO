@@ -2,9 +2,9 @@ namespace Server.Items
 {
     public class CandlewoodTorch : BaseShield
     {
-        public override int LabelNumber { get { return 1094957; } } //Candlewood Torch
-        public override bool IsArtifact { get { return true; } }
-        public bool Burning { get { return ItemID == 0xA12; } }
+        public override int LabelNumber => 1094957;  //Candlewood Torch
+        public override bool IsArtifact => true;
+        public bool Burning => ItemID == 0xA12;
 
         [Constructable]
         public CandlewoodTorch()
@@ -39,7 +39,7 @@ namespace Server.Items
                 }
             }
 
-            var parent = Parent as Mobile;
+            Mobile parent = Parent as Mobile;
 
             if (parent == from && Burning)
             {

@@ -7,7 +7,7 @@ namespace Server.Items
         public RockingHorse()
             : base(0x4214)
         {
-            this.LootType = LootType.Blessed;
+            LootType = LootType.Blessed;
         }
 
         public RockingHorse(Serial serial)
@@ -15,13 +15,7 @@ namespace Server.Items
         {
         }
 
-        public override double DefaultWeight
-        {
-            get
-            {
-                return 30.0;
-            }
-        }
+        public override double DefaultWeight => 30.0;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

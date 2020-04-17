@@ -6,7 +6,7 @@ namespace Server.Items
         public PartiallyDigestedTorso()
             : base(0x1D9F)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public PartiallyDigestedTorso(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074326;
-            }
-        }// partially digested torso
+        public override int LabelNumber => 1074326;// partially digested torso
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

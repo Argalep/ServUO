@@ -6,7 +6,7 @@ namespace Server.Items
         public PileofInspectedDullCopperIngots()
             : base(0x1BEA)
         {
-            this.Hue = 2419;
+            Hue = 2419;
         }
 
         public PileofInspectedDullCopperIngots(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1113021;
-            }
-        }//Pile of Inspected Dull Copper Ingots
+        public override int LabelNumber => 1113021;//Pile of Inspected Dull Copper Ingots
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

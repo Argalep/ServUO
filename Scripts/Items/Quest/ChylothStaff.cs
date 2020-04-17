@@ -7,7 +7,7 @@ namespace Server.Engines.Quests.Doom
         [Constructable]
         public ChylothStaff()
         {
-            this.Hue = 0x482;
+            Hue = 0x482;
         }
 
         public ChylothStaff(Serial serial)
@@ -15,13 +15,7 @@ namespace Server.Engines.Quests.Doom
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1041111;
-            }
-        }// a magic staff
+        public override int LabelNumber => 1041111;// a magic staff
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

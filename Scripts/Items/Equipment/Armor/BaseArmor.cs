@@ -302,13 +302,7 @@ namespace Server.Items
             }
         }
 
-        public double ArmorRatingScaled
-        {
-            get
-            {
-                return (ArmorRating * ArmorScalar);
-            }
-        }
+        public double ArmorRatingScaled => (ArmorRating * ArmorScalar);
 
         #region Publish 81 Armor Refinement
         private int m_RefinedPhysical;
@@ -333,13 +327,13 @@ namespace Server.Items
         public int RefinedEnergy { get { return m_RefinedEnergy; } set { m_RefinedEnergy = value; InvalidateProperties(); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int RefinedDefenseChance { get { return -(m_RefinedPhysical + m_RefinedFire + m_RefinedCold + m_RefinedPoison + m_RefinedEnergy); } }
+        public int RefinedDefenseChance => -(m_RefinedPhysical + m_RefinedFire + m_RefinedCold + m_RefinedPoison + m_RefinedEnergy);
 
         public static int GetRefinedResist(Mobile from, ResistanceType attr)
         {
             int value = 0;
 
-            foreach (var armor in from.Items.OfType<BaseArmor>())
+            foreach (BaseArmor armor in from.Items.OfType<BaseArmor>())
             {
                 switch (attr)
                 {
@@ -358,7 +352,7 @@ namespace Server.Items
         {
             int value = 0;
 
-            foreach (var armor in from.Items.OfType<BaseArmor>())
+            foreach (BaseArmor armor in from.Items.OfType<BaseArmor>())
             {
                 value += armor.RefinedDefenseChance;
             }
@@ -454,7 +448,7 @@ namespace Server.Items
             double toReduce = 0.0;
             int count = 0;
 
-            foreach (var armor in from.Items.OfType<BaseArmor>().OrderBy(arm => -GetArmorRatingReduction(arm)))
+            foreach (BaseArmor armor in from.Items.OfType<BaseArmor>().OrderBy(arm => -GetArmorRatingReduction(arm)))
             {
                 if (count == 5)
                     break;
@@ -567,7 +561,7 @@ namespace Server.Items
         {
             get
             {
-                var list = new int[5];
+                int[] list = new int[5];
 
                 list[0] = BasePhysicalResistance;
                 list[1] = BaseFireResistance;
@@ -2907,19 +2901,19 @@ namespace Server.Items
             }
             else
             {
-                if (this.m_SetPhysicalBonus != 0)
+                if (m_SetPhysicalBonus != 0)
                     list.Add(1080361, ((BasePhysicalResistance * Pieces) + m_SetPhysicalBonus).ToString()); // physical resist ~1_val~% (total)
 
-                if (this.m_SetFireBonus != 0)
+                if (m_SetFireBonus != 0)
                     list.Add(1080362, ((BaseFireResistance * Pieces) + m_SetFireBonus).ToString()); // fire resist ~1_val~% (total)
 
-                if (this.m_SetColdBonus != 0)
+                if (m_SetColdBonus != 0)
                     list.Add(1080363, ((BaseColdResistance * Pieces) + m_SetColdBonus).ToString()); // cold resist ~1_val~% (total)
 
-                if (this.m_SetPoisonBonus != 0)
+                if (m_SetPoisonBonus != 0)
                     list.Add(1080364, ((BasePoisonResistance * Pieces) + m_SetPoisonBonus).ToString()); // poison resist ~1_val~% (total)
 
-                if (this.m_SetEnergyBonus != 0)
+                if (m_SetEnergyBonus != 0)
                     list.Add(1080365, ((BaseEnergyResistance * Pieces) + m_SetEnergyBonus).ToString()); // energy resist ~1_val~% (total)
             }
 

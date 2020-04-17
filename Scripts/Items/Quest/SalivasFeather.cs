@@ -6,8 +6,8 @@ namespace Server.Items
         public SalivasFeather()
             : base(0x1020)
         {
-            this.LootType = LootType.Blessed;
-            this.Hue = 0x5C;
+            LootType = LootType.Blessed;
+            Hue = 0x5C;
         }
 
         public SalivasFeather(Serial serial)
@@ -15,13 +15,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074234;
-            }
-        }// Saliva's Feather
+        public override int LabelNumber => 1074234;// Saliva's Feather
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

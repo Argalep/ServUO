@@ -8,8 +8,8 @@ namespace Server.Items
         public ParoxysmusSwampDragonStatuette()
             : base(0x2619)
         {
-            this.Weight = 1.0;
-            this.Hue = 0x851;
+            Weight = 1.0;
+            Hue = 0x851;
         }
 
         public ParoxysmusSwampDragonStatuette(Serial serial)
@@ -17,20 +17,8 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1072084;
-            }
-        }// Paroxysmus' Swamp Dragon		
-        public override BaseCreature Summon
-        {
-            get
-            {
-                return new ParoxysmusSwampDragon();
-            }
-        }
+        public override int LabelNumber => 1072084;// Paroxysmus' Swamp Dragon		
+        public override BaseCreature Summon => new ParoxysmusSwampDragon();
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

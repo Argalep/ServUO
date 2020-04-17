@@ -6,8 +6,8 @@ namespace Server.Items
         public CrushedCrystals()
             : base(0x223C)
         {
-            this.Weight = 1;
-            this.Hue = 0x47E;
+            Weight = 1;
+            Hue = 0x47E;
         }
 
         public CrushedCrystals(Serial serial)
@@ -15,13 +15,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074262;
-            }
-        }// crushed crystal pieces
+        public override int LabelNumber => 1074262;// crushed crystal pieces
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

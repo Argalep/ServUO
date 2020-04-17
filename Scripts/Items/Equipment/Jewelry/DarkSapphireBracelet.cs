@@ -6,14 +6,14 @@ namespace Server.Items
         public DarkSapphireBracelet()
             : base()
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
 
             BaseRunicTool.ApplyAttributesTo(this, true, 0, Utility.RandomMinMax(1, 4), 0, 100);
 
             if (Utility.Random(100) < 10)
-                this.Attributes.RegenMana += 2;
+                Attributes.RegenMana += 2;
             else
-                this.Resistances.Cold += 10;
+                Resistances.Cold += 10;
         }
 
         public DarkSapphireBracelet(Serial serial)
@@ -21,13 +21,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1073455;
-            }
-        }// dark sapphire bracelet
+        public override int LabelNumber => 1073455;// dark sapphire bracelet
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

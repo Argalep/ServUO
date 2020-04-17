@@ -8,7 +8,7 @@ namespace Server.Engines.NewMagincia
     public class CommodityBroker : BaseBazaarBroker
     {
         private readonly List<CommodityBrokerEntry> m_CommodityEntries = new List<CommodityBrokerEntry>();
-        public List<CommodityBrokerEntry> CommodityEntries { get { return m_CommodityEntries; } }
+        public List<CommodityBrokerEntry> CommodityEntries => m_CommodityEntries;
 
         public static readonly int MaxEntries = 50;
 
@@ -18,7 +18,7 @@ namespace Server.Engines.NewMagincia
 
         public override void OnDoubleClick(Mobile from)
         {
-            if (from.InRange(this.Location, 4) && Plot != null)
+            if (from.InRange(Location, 4) && Plot != null)
             {
                 if (Plot.Owner == from)
                 {

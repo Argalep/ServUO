@@ -8,14 +8,14 @@ namespace Server.Items
         public MortarPestle()
             : base(0xE9B)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         [Constructable]
         public MortarPestle(int uses)
             : base(uses, 0xE9B)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public MortarPestle(Serial serial)
@@ -23,13 +23,7 @@ namespace Server.Items
         {
         }
 
-        public override CraftSystem CraftSystem
-        {
-            get
-            {
-                return DefAlchemy.CraftSystem;
-            }
-        }
+        public override CraftSystem CraftSystem => DefAlchemy.CraftSystem;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

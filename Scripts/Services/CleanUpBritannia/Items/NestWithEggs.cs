@@ -6,8 +6,8 @@
         public NestWithEggs()
             : base(0x1AD4)
         {
-            this.Hue = 2415;
-            this.Weight = 2;
+            Hue = 2415;
+            Weight = 2;
         }
 
         public NestWithEggs(Serial serial)
@@ -15,13 +15,7 @@
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1026868;
-            }
-        }// nest with eggs
+        public override int LabelNumber => 1026868;// nest with eggs
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

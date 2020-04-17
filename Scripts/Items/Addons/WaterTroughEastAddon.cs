@@ -5,8 +5,8 @@ namespace Server.Items
         [Constructable]
         public WaterTroughEastAddon()
         {
-            this.AddComponent(new AddonComponent(0xB41), 0, 0, 0);
-            this.AddComponent(new AddonComponent(0xB42), 0, 1, 0);
+            AddComponent(new AddonComponent(0xB41), 0, 0, 0);
+            AddComponent(new AddonComponent(0xB42), 0, 1, 0);
         }
 
         public WaterTroughEastAddon(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override BaseAddonDeed Deed
-        {
-            get
-            {
-                return new WaterTroughEastDeed();
-            }
-        }
+        public override BaseAddonDeed Deed => new WaterTroughEastDeed();
         public int Quantity
         {
             get
@@ -58,20 +52,8 @@ namespace Server.Items
         {
         }
 
-        public override BaseAddon Addon
-        {
-            get
-            {
-                return new WaterTroughEastAddon();
-            }
-        }
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1044349;
-            }
-        }// water trough (east)
+        public override BaseAddon Addon => new WaterTroughEastAddon();
+        public override int LabelNumber => 1044349;// water trough (east)
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

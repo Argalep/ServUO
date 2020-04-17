@@ -12,9 +12,9 @@ namespace Server.Items
         public Bottle(int amount)
             : base(0xF0E)
         {
-            this.Stackable = true;
-            this.Weight = 1.0;
-            this.Amount = amount;
+            Stackable = true;
+            Weight = 1.0;
+            Amount = amount;
         }
 
         public Bottle(Serial serial)
@@ -22,20 +22,8 @@ namespace Server.Items
         {
         }
 
-        TextDefinition ICommodity.Description
-        {
-            get
-            {
-                return this.LabelNumber;
-            }
-        }
-        bool ICommodity.IsDeedable
-        {
-            get
-            {
-                return true;
-            }
-        }
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => true;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

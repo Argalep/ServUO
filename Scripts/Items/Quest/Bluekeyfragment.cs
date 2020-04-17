@@ -6,8 +6,8 @@ namespace Server.Items
         public Bluekeyfragment()
             : base(0x1012)
         {
-            this.Movable = false;
-            this.Hue = 0x5D;
+            Movable = false;
+            Hue = 0x5D;
         }
 
         public Bluekeyfragment(Serial serial)
@@ -15,13 +15,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1111646;
-            }
-        }
+        public override int LabelNumber => 1111646;
         public override void OnDoubleClick(Mobile from)
         {
             from.SendMessage("You make a copy of the key in your pack");

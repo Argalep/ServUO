@@ -4,7 +4,7 @@ namespace Server.Mobiles
 {
     public class MerchantCrew : BaseCreature
     {
-        public override bool InitialInnocent { get { return true; } }
+        public override bool InitialInnocent => true;
         public override WeaponAbility GetWeaponAbility()
         {
             Item weapon = FindItemOnLayer(Layer.TwoHanded);
@@ -29,7 +29,7 @@ namespace Server.Mobiles
             Title = "the merchant";
             Hue = Race.RandomSkinHue();
 
-            if (this.Female = Utility.RandomBool())
+            if (Female = Utility.RandomBool())
             {
                 Body = 0x191;
                 Name = NameList.RandomName("female");

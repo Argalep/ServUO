@@ -5,8 +5,8 @@ namespace Server.Items
         [Constructable]
         public StoneOvenEastAddon()
         {
-            this.AddComponent(new AddonComponent(0x92C), 0, 0, 0);
-            this.AddComponent(new AddonComponent(0x92B), 0, 1, 0);
+            AddComponent(new AddonComponent(0x92C), 0, 0, 0);
+            AddComponent(new AddonComponent(0x92B), 0, 1, 0);
         }
 
         public StoneOvenEastAddon(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override BaseAddonDeed Deed
-        {
-            get
-            {
-                return new StoneOvenEastDeed();
-            }
-        }
+        public override BaseAddonDeed Deed => new StoneOvenEastDeed();
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -48,20 +42,8 @@ namespace Server.Items
         {
         }
 
-        public override BaseAddon Addon
-        {
-            get
-            {
-                return new StoneOvenEastAddon();
-            }
-        }
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1044345;
-            }
-        }// stone oven (east)
+        public override BaseAddon Addon => new StoneOvenEastAddon();
+        public override int LabelNumber => 1044345;// stone oven (east)
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

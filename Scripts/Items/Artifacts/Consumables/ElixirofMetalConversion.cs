@@ -2,7 +2,7 @@ namespace Server.Items
 {
     public class ElixirofMetalConversion : Item
     {
-        public override int LabelNumber { get { return 1113011; } } // Elixir of Metal Conversion
+        public override int LabelNumber => 1113011;  // Elixir of Metal Conversion
 
         [Constructable]
         public ElixirofMetalConversion()
@@ -50,7 +50,7 @@ namespace Server.Items
                     }
 
                     from.SendLocalizedMessage(1113048); // You've successfully converted the metal.
-                    this.Delete();
+                    Delete();
                 }
                 else if ((m_Ore1.Amount < 500) || (m_Ore1.Amount > 500))
                 {

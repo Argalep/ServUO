@@ -48,7 +48,7 @@ namespace Server.Items
         public HalfApron(int hue)
             : base(0x153b, hue)
         {
-            this.Weight = 2.0;
+            Weight = 2.0;
         }
 
         public HalfApron(Serial serial)
@@ -84,7 +84,7 @@ namespace Server.Items
         public Obi(int hue)
             : base(0x27A0, hue)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public Obi(Serial serial)
@@ -120,7 +120,7 @@ namespace Server.Items
         public WoodlandBelt(int hue)
             : base(0x2B68, hue)
         {
-            this.Weight = 4.0;
+            Weight = 4.0;
         }
 
         public WoodlandBelt(Serial serial)
@@ -128,13 +128,7 @@ namespace Server.Items
         {
         }
 
-        public override Race RequiredRace
-        {
-            get
-            {
-                return Race.Elf;
-            }
-        }
+        public override Race RequiredRace => Race.Elf;
         public override bool Dye(Mobile from, DyeTub sender)
         {
             from.SendLocalizedMessage(sender.FailMessage);
@@ -175,7 +169,7 @@ namespace Server.Items
         public GargoyleHalfApron(int hue)
             : base(0x50D8, hue)
         {
-            this.Weight = 2.0;
+            Weight = 2.0;
         }
 
         public GargoyleHalfApron(Serial serial)
@@ -183,20 +177,8 @@ namespace Server.Items
         {
         }
 
-        public override Race RequiredRace
-        {
-            get
-            {
-                return Race.Gargoyle;
-            }
-        }
-        public override bool CanBeWornByGargoyles
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public override Race RequiredRace => Race.Gargoyle;
+        public override bool CanBeWornByGargoyles => true;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -225,7 +207,7 @@ namespace Server.Items
         public GargishApron(int hue)
             : base(0x50D8, hue)
         {
-            this.Weight = 2.0;
+            Weight = 2.0;
         }
 
         public GargishApron(Serial serial)
@@ -233,20 +215,8 @@ namespace Server.Items
         {
         }
 
-        public override Race RequiredRace
-        {
-            get
-            {
-                return Race.Gargoyle;
-            }
-        }
-        public override bool CanBeWornByGargoyles
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public override Race RequiredRace => Race.Gargoyle;
+        public override bool CanBeWornByGargoyles => true;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

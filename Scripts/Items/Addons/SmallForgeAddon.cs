@@ -5,7 +5,7 @@ namespace Server.Items
         [Constructable]
         public SmallForgeAddon()
         {
-            this.AddComponent(new ForgeComponent(0xFB1), 0, 0, 0);
+            AddComponent(new ForgeComponent(0xFB1), 0, 0, 0);
         }
 
         public SmallForgeAddon(Serial serial)
@@ -13,13 +13,7 @@ namespace Server.Items
         {
         }
 
-        public override BaseAddonDeed Deed
-        {
-            get
-            {
-                return new SmallForgeDeed();
-            }
-        }
+        public override BaseAddonDeed Deed => new SmallForgeDeed();
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -47,20 +41,8 @@ namespace Server.Items
         {
         }
 
-        public override BaseAddon Addon
-        {
-            get
-            {
-                return new SmallForgeAddon();
-            }
-        }
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1044330;
-            }
-        }// small forge
+        public override BaseAddon Addon => new SmallForgeAddon();
+        public override int LabelNumber => 1044330;// small forge
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

@@ -8,14 +8,14 @@ namespace Server.Items
         public MalletAndChisel()
             : base(0x12B3)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         [Constructable]
         public MalletAndChisel(int uses)
             : base(uses, 0x12B3)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public MalletAndChisel(Serial serial)
@@ -23,13 +23,7 @@ namespace Server.Items
         {
         }
 
-        public override CraftSystem CraftSystem
-        {
-            get
-            {
-                return DefMasonry.CraftSystem;
-            }
-        }
+        public override CraftSystem CraftSystem => DefMasonry.CraftSystem;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

@@ -15,7 +15,7 @@ namespace Server.Items
             EventSink.AfterWorldSave += CheckCleanup;
         }
 
-        public override int LabelNumber { get { return 1094937; } } // seed of life
+        public override int LabelNumber => 1094937;  // seed of life
 
         [Constructable]
         public SeedOfLife()
@@ -93,7 +93,7 @@ namespace Server.Items
             toHeal = Math.Min(toHeal, diff);
 
             pm.Hits += toHeal;
-            this.Consume();
+            Consume();
 
             if (!SeedUsageList.ContainsKey(pm))
             {

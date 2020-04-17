@@ -6,7 +6,7 @@ namespace Server.Items
         public Obelisk()
             : base(0x1184)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         public Obelisk(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1016474;
-            }
-        }// an obelisk
+        public override int LabelNumber => 1016474;// an obelisk
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

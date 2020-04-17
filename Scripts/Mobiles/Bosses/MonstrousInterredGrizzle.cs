@@ -77,20 +77,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool GivesMLMinorArtifact
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override int TreasureMapLevel
-        {
-            get
-            {
-                return 5;
-            }
-        }
+        public override bool GivesMLMinorArtifact => true;
+        public override int TreasureMapLevel => 5;
 
         public override void GenerateLoot()
         {
@@ -255,7 +243,7 @@ namespace Server.Mobiles
 
             if (!Deleted && Map != Map.Internal && Map != null)
             {
-                foreach (var m in SpellHelper.AcquireIndirectTargets(m_Owner, Location, Map, 0).OfType<Mobile>())
+                foreach (Mobile m in SpellHelper.AcquireIndirectTargets(m_Owner, Location, Map, 0).OfType<Mobile>())
                 {
                     OnMoveOver(m);
                 }

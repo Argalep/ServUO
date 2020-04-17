@@ -4,7 +4,7 @@ namespace Server.Items
 {
     public class ShackledHeartOfThePumpkinKing : Item
     {
-        public override int LabelNumber { get { return 1157653; } } // Shackled Heart of the Pumpkin King
+        public override int LabelNumber => 1157653;  // Shackled Heart of the Pumpkin King
 
         private Timer Timer { get; set; }
 
@@ -56,7 +56,7 @@ namespace Server.Items
                 {
                     Owner.PlaySound(0x133);
 
-                    var blood = new Blood();
+                    Blood blood = new Blood();
                     blood.ItemID = Utility.Random(0x122A, 5);
                     blood.MoveToWorld(Owner.Location, Owner.Map);
                 }

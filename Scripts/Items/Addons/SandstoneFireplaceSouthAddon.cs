@@ -5,8 +5,8 @@ namespace Server.Items
         [Constructable]
         public SandstoneFireplaceSouthAddon()
         {
-            this.AddComponent(new AddonComponent(0x482), -1, 0, 0);
-            this.AddComponent(new AddonComponent(0x47B), 0, 0, 0);
+            AddComponent(new AddonComponent(0x482), -1, 0, 0);
+            AddComponent(new AddonComponent(0x47B), 0, 0, 0);
         }
 
         public SandstoneFireplaceSouthAddon(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override BaseAddonDeed Deed
-        {
-            get
-            {
-                return new SandstoneFireplaceSouthDeed();
-            }
-        }
+        public override BaseAddonDeed Deed => new SandstoneFireplaceSouthDeed();
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -48,20 +42,8 @@ namespace Server.Items
         {
         }
 
-        public override BaseAddon Addon
-        {
-            get
-            {
-                return new SandstoneFireplaceSouthAddon();
-            }
-        }
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1061845;
-            }
-        }// sandstone fireplace (south)
+        public override BaseAddon Addon => new SandstoneFireplaceSouthAddon();
+        public override int LabelNumber => 1061845;// sandstone fireplace (south)
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

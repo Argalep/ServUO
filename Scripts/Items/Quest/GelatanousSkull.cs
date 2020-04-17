@@ -6,7 +6,7 @@ namespace Server.Items
         public GelatanousSkull()
             : base(0x1AE0)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public GelatanousSkull(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074328;
-            }
-        }// gelatanous skull
+        public override int LabelNumber => 1074328;// gelatanous skull
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

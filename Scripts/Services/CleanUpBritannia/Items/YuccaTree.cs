@@ -6,7 +6,7 @@
         public YuccaTree()
             : base(0x0D37)
         {
-            this.Weight = 10;
+            Weight = 10;
         }
 
         public YuccaTree(Serial serial)
@@ -14,13 +14,7 @@
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1023383;
-            }
-        }// yucca
+        public override int LabelNumber => 1023383;// yucca
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

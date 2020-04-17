@@ -6,7 +6,7 @@ namespace Server.Items
         public RunedPrism()
             : base(0x2F57)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public RunedPrism(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1073465;
-            }
-        }// runed prism
+        public override int LabelNumber => 1073465;// runed prism
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

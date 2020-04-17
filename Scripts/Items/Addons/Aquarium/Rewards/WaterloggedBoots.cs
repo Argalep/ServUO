@@ -9,14 +9,14 @@ namespace Server.Items
             if (Utility.RandomBool())
             {
                 // thigh boots
-                this.ItemID = 0x1711;
-                this.Weight = 4.0;
+                ItemID = 0x1711;
+                Weight = 4.0;
             }
             else
             {
                 // boots
-                this.ItemID = 0x170B;
-                this.Weight = 3.0;
+                ItemID = 0x170B;
+                Weight = 3.0;
             }
         }
 
@@ -25,13 +25,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074364;
-            }
-        }// Waterlogged boots
+        public override int LabelNumber => 1074364;// Waterlogged boots
         public override void AddNameProperties(ObjectPropertyList list)
         {
             base.AddNameProperties(list);

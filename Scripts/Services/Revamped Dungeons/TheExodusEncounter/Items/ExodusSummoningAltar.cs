@@ -8,17 +8,17 @@ namespace Server.Items
 {
     public class ExodusSummoningAlter : BaseDecayingItem
     {
-        public override int LabelNumber { get { return 1153502; } } // exodus summoning altar
+        public override int LabelNumber => 1153502;  // exodus summoning altar
 
         [Constructable]
         public ExodusSummoningAlter() : base(0x14F0)
         {
-            this.LootType = LootType.Regular;
-            this.Weight = 1;
+            LootType = LootType.Regular;
+            Weight = 1;
         }
 
-        public override int Lifespan { get { return 604800; } }
-        public override bool UseSeconds { get { return false; } }
+        public override int Lifespan => 604800;
+        public override bool UseSeconds => false;
 
         public ExodusSummoningAlter(Serial serial)
             : base(serial)

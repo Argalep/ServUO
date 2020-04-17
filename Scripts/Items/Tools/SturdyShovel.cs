@@ -14,8 +14,8 @@ namespace Server.Items
         public SturdyShovel(int uses)
             : base(uses, 0xF39)
         {
-            this.Weight = 5.0;
-            this.Hue = 0x973;
+            Weight = 5.0;
+            Hue = 0x973;
         }
 
         public SturdyShovel(Serial serial)
@@ -23,20 +23,8 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1045125;
-            }
-        }// sturdy shovel
-        public override HarvestSystem HarvestSystem
-        {
-            get
-            {
-                return Mining.System;
-            }
-        }
+        public override int LabelNumber => 1045125;// sturdy shovel
+        public override HarvestSystem HarvestSystem => Mining.System;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

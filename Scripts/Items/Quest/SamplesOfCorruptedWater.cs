@@ -6,7 +6,7 @@ namespace Server.Items
         public SamplesOfCorruptedWater()
             : base(0xEFE)
         {
-            this.LootType = LootType.Blessed;
+            LootType = LootType.Blessed;
         }
 
         public SamplesOfCorruptedWater(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074999;
-            }
-        }// samples of corrupted water
+        public override int LabelNumber => 1074999;// samples of corrupted water
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

@@ -6,14 +6,14 @@ namespace Server.Items
         public FireRubyBracelet()
             : base()
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
 
             BaseRunicTool.ApplyAttributesTo(this, true, 0, Utility.RandomMinMax(1, 4), 0, 100);
 
             if (Utility.Random(100) < 10)
-                this.Attributes.RegenHits += 2;
+                Attributes.RegenHits += 2;
             else
-                this.Resistances.Fire += 10;
+                Resistances.Fire += 10;
         }
 
         public FireRubyBracelet(Serial serial)
@@ -21,13 +21,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1073454;
-            }
-        }// fire ruby bracelet
+        public override int LabelNumber => 1073454;// fire ruby bracelet
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

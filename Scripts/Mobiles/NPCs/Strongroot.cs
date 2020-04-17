@@ -15,22 +15,16 @@ namespace Server.Engines.Quests
         {
         }
 
-        public override Type[] Quests
-        {
-            get
-            {
-                return new Type[]
+        public override Type[] Quests => new Type[]
                 {
                     typeof(CaretakerOfTheLandQuest)
                 };
-            }
-        }
         public override void InitBody()
         {
-            this.InitStats(100, 100, 25);
+            InitStats(100, 100, 25);
 
-            this.Female = false;
-            this.Body = 301;
+            Female = false;
+            Body = 301;
         }
 
         public override void Serialize(GenericWriter writer)

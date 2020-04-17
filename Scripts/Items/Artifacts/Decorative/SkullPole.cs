@@ -2,12 +2,12 @@ namespace Server.Items
 {
     public class SkullPole : Item
     {
-        public override bool IsArtifact { get { return true; } }
+        public override bool IsArtifact => true;
         [Constructable]
         public SkullPole()
             : base(0x2204)
         {
-            this.Weight = 5;
+            Weight = 5;
         }
 
         public SkullPole(Serial serial)

@@ -6,9 +6,9 @@ namespace Server.Items
         public PileofInspectedAgapiteIngots()
             : base(0x1BEA)
         {
-            this.Name = "Pile of Inspected Agapite Ingots";
+            Name = "Pile of Inspected Agapite Ingots";
 
-            this.Hue = 2425;
+            Hue = 2425;
         }
 
         public PileofInspectedAgapiteIngots(Serial serial)
@@ -16,13 +16,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1113770;
-            }
-        }//Essence Box
+        public override int LabelNumber => 1113770;//Essence Box
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

@@ -6,7 +6,7 @@ namespace Server.Items
         public TigerClawSectBadge()
             : base(0x23D)
         {
-            this.LootType = LootType.Blessed;
+            LootType = LootType.Blessed;
         }
 
         public TigerClawSectBadge(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1073140;
-            }
-        }// A Tiger Claw Sect Badge
+        public override int LabelNumber => 1073140;// A Tiger Claw Sect Badge
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

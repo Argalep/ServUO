@@ -56,14 +56,14 @@ namespace Server.Items
 
         public override bool Eat(Mobile from)
         {
-            var p = Location;
+            Point3D p = Location;
 
             if (!base.Eat(from))
             {
                 return false;
             }
 
-            var basket = new Basket();
+            Basket basket = new Basket();
 
             if (Parent == null && DailyRare)
             {
@@ -777,7 +777,7 @@ namespace Server.Items
 
     public class Plum : Food
     {
-        public override int LabelNumber { get { return 1157208; } } // plum
+        public override int LabelNumber => 1157208;  // plum
 
         [Constructable]
         public Plum()

@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int BaseGemTypeNumber
-        {
-            get
-            {
-                return 1044241;
-            }
-        }// star sapphire necklace
+        public override int BaseGemTypeNumber => 1044241;// star sapphire necklace
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -192,7 +186,7 @@ namespace Server.Items
 
         private void AssignRandomGem()
         {
-            var ran = Utility.RandomMinMax(1, 9);
+            int ran = Utility.RandomMinMax(1, 9);
             GemType = (GemType)ran;
         }
 

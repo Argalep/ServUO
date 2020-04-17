@@ -25,7 +25,7 @@ namespace Server.Engines.Despise
 
     public class WispOrb : Item
     {
-        public override int LabelNumber { get { return 1153273; } } // A Wisp Orb
+        public override int LabelNumber => 1153273;  // A Wisp Orb
 
         private static readonly int MinPowerToConscript = 4;
 
@@ -38,10 +38,7 @@ namespace Server.Engines.Despise
         private bool m_Conscripted;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public Mobile Owner
-        {
-            get { return m_Owner; }
-        }
+        public Mobile Owner => m_Owner;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public DespiseCreature Pet
@@ -222,7 +219,7 @@ namespace Server.Engines.Despise
         {
             List<WispOrb> list = new List<WispOrb>(c.Items.OfType<WispOrb>());
 
-            foreach (var orb in list)
+            foreach (WispOrb orb in list)
             {
                 m.SendLocalizedMessage(1153233); // The Wisp Orb vanishes to whence it came...
                 orb.Delete();
@@ -601,6 +598,6 @@ namespace Server.Engines.Despise
         }
 
         private static readonly List<WispOrb> m_Orbs = new List<WispOrb>();
-        public static List<WispOrb> Orbs { get { return m_Orbs; } }
+        public static List<WispOrb> Orbs => m_Orbs;
     }
 }

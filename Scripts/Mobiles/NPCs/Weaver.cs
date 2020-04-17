@@ -7,44 +7,26 @@ namespace Server.Mobiles
     public class Weaver : BaseVendor
     {
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
-        protected override List<SBInfo> SBInfos
-        {
-            get
-            {
-                return this.m_SBInfos;
-            }
-        }
+        protected override List<SBInfo> SBInfos => m_SBInfos;
 
-        public override NpcGuild NpcGuild
-        {
-            get
-            {
-                return NpcGuild.TailorsGuild;
-            }
-        }
+        public override NpcGuild NpcGuild => NpcGuild.TailorsGuild;
 
         [Constructable]
         public Weaver()
             : base("the weaver")
         {
-            this.SetSkill(SkillName.Tailoring, 65.0, 88.0);
+            SetSkill(SkillName.Tailoring, 65.0, 88.0);
         }
 
         public override void InitSBInfo()
         {
-            this.m_SBInfos.Add(new SBWeaver());
+            m_SBInfos.Add(new SBWeaver());
         }
 
-        public override VendorShoeType ShoeType
-        {
-            get
-            {
-                return VendorShoeType.Sandals;
-            }
-        }
+        public override VendorShoeType ShoeType => VendorShoeType.Sandals;
 
         #region Bulk Orders
-        public override BODType BODType { get { return BODType.Tailor; } }
+        public override BODType BODType => BODType.Tailor;
 
         public override Item CreateBulkOrder(Mobile from, bool fromContextMenu)
         {

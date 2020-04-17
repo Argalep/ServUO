@@ -6,8 +6,8 @@ namespace Server.Items
         public StoutWhip()
             : base(0x166F)
         {
-            this.LootType = LootType.Blessed;
-            this.Weight = 1;
+            LootType = LootType.Blessed;
+            Weight = 1;
         }
 
         public StoutWhip(Serial serial)
@@ -15,13 +15,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074812;
-            }
-        }// Stout Whip
+        public override int LabelNumber => 1074812;// Stout Whip
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

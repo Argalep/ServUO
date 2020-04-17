@@ -2,21 +2,15 @@ namespace Server.Items
 {
     public class SolenWarriorCostume : BaseCostume
     {
-        public override string CreatureName { get { return "solen warrior"; } }
+        public override string CreatureName => "solen warrior";
 
         [Constructable]
         public SolenWarriorCostume() : base()
         {
-            this.CostumeBody = 782;
+            CostumeBody = 782;
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1114231;
-            }
-        }// solen warrior costume
+        public override int LabelNumber => 1114231;// solen warrior costume
 
         public SolenWarriorCostume(Serial serial) : base(serial)
         {

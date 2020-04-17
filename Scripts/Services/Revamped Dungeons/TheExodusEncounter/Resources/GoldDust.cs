@@ -10,10 +10,10 @@ namespace Server.Items
         [Constructable]
         public GoldDust(int amount) : base(0x4C09)
         {
-            this.Stackable = true;
-            this.Hue = 1177;
-            this.Weight = 1.0;
-            this.Amount = amount;
+            Stackable = true;
+            Hue = 1177;
+            Weight = 1.0;
+            Amount = amount;
         }
 
         public GoldDust(Serial serial)
@@ -21,10 +21,10 @@ namespace Server.Items
         {
         }
 
-        TextDefinition ICommodity.Description { get { return LabelNumber; } }
-        bool ICommodity.IsDeedable { get { return true; } }
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => true;
 
-        public override int LabelNumber { get { return 1153504; } } // gold dust
+        public override int LabelNumber => 1153504;  // gold dust
 
         public override void Serialize(GenericWriter writer)
         {

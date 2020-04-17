@@ -6,7 +6,7 @@ namespace Server.Items
         public CoagulatedLegs()
             : base(0x1CDF)
         {
-            this.Weight = 1;
+            Weight = 1;
         }
 
         public CoagulatedLegs(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074327;
-            }
-        }// coagulated legs
+        public override int LabelNumber => 1074327;// coagulated legs
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

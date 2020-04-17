@@ -6,7 +6,7 @@ namespace Server.Items
         public JeweledFiligree()
             : base(0x2F5E)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public JeweledFiligree(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1072894;
-            }
-        }// jeweled filigree
+        public override int LabelNumber => 1072894;// jeweled filigree
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

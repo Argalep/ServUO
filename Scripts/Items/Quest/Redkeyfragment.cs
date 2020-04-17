@@ -6,8 +6,8 @@ namespace Server.Items
         public Redkeyfragment()
             : base(0x1012)
         {
-            this.Movable = false;
-            this.Hue = 0x8F;
+            Movable = false;
+            Hue = 0x8F;
         }
 
         public Redkeyfragment(Serial serial)
@@ -15,13 +15,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1111647;
-            }
-        }
+        public override int LabelNumber => 1111647;
         public override void OnDoubleClick(Mobile from)
         {
             from.SendMessage("You make a copy of the key in your pack");

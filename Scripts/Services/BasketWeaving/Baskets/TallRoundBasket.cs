@@ -7,7 +7,7 @@ public class TallRoundBasket : BaseContainer
     public TallRoundBasket()
         : base(0x24D8)
     {
-        this.Weight = 1.0;
+        Weight = 1.0;
     }
 
     public TallRoundBasket(Serial serial)
@@ -15,13 +15,7 @@ public class TallRoundBasket : BaseContainer
     {
     }
 
-    public override int LabelNumber
-    {
-        get
-        {
-            return 1112297;
-        }
-    }//Tall Round Basket
+    public override int LabelNumber => 1112297;//Tall Round Basket
 
     public override void Serialize(GenericWriter writer)
     {

@@ -6,7 +6,7 @@ namespace Server.Items
         public SpleenOfThePutrefier()
             : base(0x1CEE)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public SpleenOfThePutrefier(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074329;
-            }
-        }// spleen of the putrefier
+        public override int LabelNumber => 1074329;// spleen of the putrefier
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

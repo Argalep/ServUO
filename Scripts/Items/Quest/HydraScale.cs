@@ -6,7 +6,7 @@ namespace Server.Items
         public HydraScale()
             : base(0x26B4)
         {
-            this.Hue = 0xC2; // TODO check
+            Hue = 0xC2; // TODO check
         }
 
         public HydraScale(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074760;
-            }
-        }// A hydra scale.
+        public override int LabelNumber => 1074760;// A hydra scale.
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

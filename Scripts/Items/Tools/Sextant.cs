@@ -9,7 +9,7 @@ namespace Server.Items
         public Sextant()
             : base(0x1058)
         {
-            this.Weight = 2.0;
+            Weight = 2.0;
         }
 
         public Sextant(Serial serial)
@@ -153,7 +153,7 @@ namespace Server.Items
 
         public override void OnDoubleClick(Mobile from)
         {
-            var coords = GetCoords(from);
+            string coords = GetCoords(from);
 
             if (!String.IsNullOrEmpty(coords))
             {

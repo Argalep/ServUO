@@ -554,13 +554,7 @@ namespace Server.Items
             set { m_DImodded = value; }
         }
 
-        public int[] BaseResists
-        {
-            get
-            {
-                return new int[] { 0, 0, 0, 0, 0 };
-            }
-        }
+        public int[] BaseResists => new int[] { 0, 0, 0, 0, 0 };
 
         public virtual void OnAfterImbued(Mobile m, int mod, int value)
         {
@@ -775,10 +769,10 @@ namespace Server.Items
             return false;
         }
 
-        public virtual Race RequiredRace { get { return null; } }
+        public virtual Race RequiredRace => null;
         //On OSI, there are no weapons with race requirements, this is for custom stuff
 
-        public virtual bool CanBeWornByGargoyles { get { return false; } }
+        public virtual bool CanBeWornByGargoyles => false;
 
         public override bool CanEquip(Mobile from)
         {
@@ -1517,7 +1511,7 @@ namespace Server.Items
                     {
                         if (weapon != null)
                         {
-                            var combatant = defender.Combatant;
+                            IDamageable combatant = defender.Combatant;
 
                             defender.FixedParticles(0x3779, 1, 15, 0x158B, 0x0, 0x3, EffectLayer.Waist);
                             weapon.OnSwing(defender, attacker);
@@ -1984,7 +1978,7 @@ namespace Server.Items
             }
 
             #region Enemy of One
-            var enemyOfOneContext = EnemyOfOneSpell.GetContext(defender);
+            EnemyOfOneContext enemyOfOneContext = EnemyOfOneSpell.GetContext(defender);
 
             if (enemyOfOneContext != null && !enemyOfOneContext.IsWaitingForEnemy && !enemyOfOneContext.IsEnemy(attacker))
             {
@@ -2430,11 +2424,11 @@ namespace Server.Items
                 int hldWep = m_AosWeaponAttributes.HitLowerDefend;
                 int hldGlasses = 0;
 
-                var helm = attacker.FindItemOnLayer(Layer.Helm);
+                Item helm = attacker.FindItemOnLayer(Layer.Helm);
 
                 if (helm != null)
                 {
-                    var attrs = RunicReforging.GetAosWeaponAttributes(helm);
+                    AosWeaponAttributes attrs = RunicReforging.GetAosWeaponAttributes(helm);
 
                     if (attrs != null)
                         hldGlasses = attrs.HitLowerDefend;
@@ -2788,11 +2782,11 @@ namespace Server.Items
                 return;
             }
 
-            var list = SpellHelper.AcquireIndirectTargets(from, from, from.Map, 5);
+            IEnumerable<IDamageable> list = SpellHelper.AcquireIndirectTargets(from, from, from.Map, 5);
 
-            var count = 0;
+            int count = 0;
 
-            foreach (var m in list)
+            foreach (IDamageable m in list)
             {
                 ++count;
 
@@ -2895,12 +2889,12 @@ namespace Server.Items
                 return;
             }
 
-            var m = defender.Map;
-            var b = new Rectangle2D(defender.X - 2, defender.Y - 2, 5, 5);
+            Map m = defender.Map;
+            Rectangle2D b = new Rectangle2D(defender.X - 2, defender.Y - 2, 5, 5);
 
-            var count = Utility.RandomMinMax(2, 3);
+            int count = Utility.RandomMinMax(2, 3);
 
-            for (var i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 AddBlood(defender, m.GetRandomSpawnPoint(b), m);
             }
@@ -2908,9 +2902,9 @@ namespace Server.Items
 
         protected virtual void AddBlood(Mobile defender, Point3D target, Map map)
         {
-            var blood = CreateBlood(defender);
+            Blood blood = CreateBlood(defender);
 
-            var id = blood.ItemID;
+            int id = blood.ItemID;
 
             blood.ItemID = 1; // No Draw
 
@@ -2940,9 +2934,9 @@ namespace Server.Items
         #region Elemental Damage
         public static int[] GetElementDamages(Mobile m)
         {
-            var o = new[] { 100, 0, 0, 0, 0, 0, 0 };
+            int[] o = new[] { 100, 0, 0, 0, 0, 0, 0 };
 
-            var w = m.Weapon as BaseWeapon ?? Fists;
+            BaseWeapon w = m.Weapon as BaseWeapon ?? Fists;
 
             if (w != null)
             {
@@ -4407,7 +4401,7 @@ namespace Server.Items
             return m_AosAttributes.SpellChanneling > 0 || Enhancement.GetValue(from, AosAttribute.SpellChanneling) > 0;
         }
 
-        public virtual int ArtifactRarity { get { return 0; } }
+        public virtual int ArtifactRarity => 0;
 
         public override bool DisplayWeight
         {
@@ -5297,18 +5291,12 @@ namespace Server.Items
             return base.OnDragLift(from);
         }
 
-        public virtual SetItem SetID { get { return SetItem.None; } }
-        public virtual int Pieces { get { return 0; } }
+        public virtual SetItem SetID => SetItem.None;
+        public virtual int Pieces => 0;
 
-        public virtual bool BardMasteryBonus
-        {
-            get
-            {
-                return (SetID == SetItem.Virtuoso);
-            }
-        }
+        public virtual bool BardMasteryBonus => (SetID == SetItem.Virtuoso);
 
-        public bool IsSetItem { get { return SetID != SetItem.None; } }
+        public bool IsSetItem => SetID != SetItem.None;
 
         private int m_SetHue;
         private bool m_SetEquipped;

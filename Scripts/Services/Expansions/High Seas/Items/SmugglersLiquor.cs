@@ -5,8 +5,8 @@
         private int m_Label;
         private SmugglersLiquorType m_Type;
 
-        public override int LabelNumber { get { return m_Label; } }
-        public override int MaxQuantity { get { return 5; } }
+        public override int LabelNumber => m_Label;
+        public override int MaxQuantity => 5;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public SmugglersLiquorType LiquorType { get { return m_Type; } set { m_Type = value; ItemID = ComputeItemID(); } }
@@ -45,7 +45,7 @@
 
         public SmugglersLiquor(SmugglersLiquorType type) : base(GetContents(type))
         {
-            this.LiquorType = type;
+            LiquorType = type;
         }
 
         public static BeverageType GetContents(SmugglersLiquorType type)

@@ -6,7 +6,7 @@ namespace Server.Items
         public PileofInspectedShadowIronIngots()
             : base(0x1BEA)
         {
-            this.Hue = 2406;
+            Hue = 2406;
         }
 
         public PileofInspectedShadowIronIngots(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1113022;
-            }
-        }//Pile of Inspected Shadow Iron Ingots
+        public override int LabelNumber => 1113022;//Pile of Inspected Shadow Iron Ingots
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

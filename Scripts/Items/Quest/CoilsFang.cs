@@ -6,8 +6,8 @@ namespace Server.Items
         public CoilsFang()
             : base(0x10E8)
         {
-            this.LootType = LootType.Blessed;
-            this.Hue = 0x487;
+            LootType = LootType.Blessed;
+            Hue = 0x487;
         }
 
         public CoilsFang(Serial serial)
@@ -15,13 +15,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074229;
-            }
-        }// Coil's Fang
+        public override int LabelNumber => 1074229;// Coil's Fang
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

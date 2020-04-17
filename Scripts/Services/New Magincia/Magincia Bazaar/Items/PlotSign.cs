@@ -17,7 +17,7 @@ namespace Server.Engines.NewMagincia
             set { m_Plot = value; InvalidateProperties(); }
         }
 
-        public override bool DisplayWeight { get { return false; } }
+        public override bool DisplayWeight => false;
 
         public PlotSign(MaginciaBazaarPlot plot)
             : base(3025)
@@ -32,7 +32,7 @@ namespace Server.Engines.NewMagincia
             {
                 from.SendMessage("New Magincia Bazaar Plot {0} is inactive at this time.", m_Plot.PlotDef.ID);
             }
-            else if (from.InRange(this.Location, 3))
+            else if (from.InRange(Location, 3))
             {
                 from.CloseGump(typeof(BaseBazaarGump));
                 from.SendGump(new StallLeasingGump(from, m_Plot));

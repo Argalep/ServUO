@@ -6,8 +6,8 @@
         public RoseInAVase()
             : base(0x0EB0)
         {
-            this.Hue = 0x20;
-            this.LootType = LootType.Blessed;
+            Hue = 0x20;
+            LootType = LootType.Blessed;
         }
 
         public RoseInAVase(Serial serial)
@@ -15,13 +15,7 @@
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1023760;
-            }
-        }// A Rose in a Vase	1023760
+        public override int LabelNumber => 1023760;// A Rose in a Vase	1023760
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

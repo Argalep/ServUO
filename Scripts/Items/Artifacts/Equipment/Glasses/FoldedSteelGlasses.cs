@@ -5,7 +5,7 @@ namespace Server.Items
     [Alterable(typeof(DefTinkering), typeof(GargishFoldedSteelGlasses))]
     public class FoldedSteelGlasses : ElvenGlasses
     {
-        public override bool IsArtifact { get { return true; } }
+        public override bool IsArtifact => true;
 
         [Constructable]
         public FoldedSteelGlasses()
@@ -21,62 +21,14 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1073380;
-            }
-        }//Folded Steel Reading Glasses
-        public override int BasePhysicalResistance
-        {
-            get
-            {
-                return 20;
-            }
-        }
-        public override int BaseFireResistance
-        {
-            get
-            {
-                return 10;
-            }
-        }
-        public override int BaseColdResistance
-        {
-            get
-            {
-                return 10;
-            }
-        }
-        public override int BasePoisonResistance
-        {
-            get
-            {
-                return 10;
-            }
-        }
-        public override int BaseEnergyResistance
-        {
-            get
-            {
-                return 10;
-            }
-        }
-        public override int InitMinHits
-        {
-            get
-            {
-                return 255;
-            }
-        }
-        public override int InitMaxHits
-        {
-            get
-            {
-                return 255;
-            }
-        }
+        public override int LabelNumber => 1073380;//Folded Steel Reading Glasses
+        public override int BasePhysicalResistance => 20;
+        public override int BaseFireResistance => 10;
+        public override int BaseColdResistance => 10;
+        public override int BasePoisonResistance => 10;
+        public override int BaseEnergyResistance => 10;
+        public override int InitMinHits => 255;
+        public override int InitMaxHits => 255;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -88,14 +40,14 @@ namespace Server.Items
             base.Deserialize(reader);
             int version = reader.ReadInt();
 
-            if (version == 0 && this.Hue == 0)
-                this.Hue = 0x47E;
+            if (version == 0 && Hue == 0)
+                Hue = 0x47E;
         }
     }
 
     public class GargishFoldedSteelGlasses : GargishGlasses
     {
-        public override bool IsArtifact { get { return true; } }
+        public override bool IsArtifact => true;
 
         [Constructable]
         public GargishFoldedSteelGlasses()
@@ -111,62 +63,14 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1073380;
-            }
-        }//Folded Steel Reading Glasses
-        public override int BasePhysicalResistance
-        {
-            get
-            {
-                return 20;
-            }
-        }
-        public override int BaseFireResistance
-        {
-            get
-            {
-                return 10;
-            }
-        }
-        public override int BaseColdResistance
-        {
-            get
-            {
-                return 10;
-            }
-        }
-        public override int BasePoisonResistance
-        {
-            get
-            {
-                return 10;
-            }
-        }
-        public override int BaseEnergyResistance
-        {
-            get
-            {
-                return 10;
-            }
-        }
-        public override int InitMinHits
-        {
-            get
-            {
-                return 255;
-            }
-        }
-        public override int InitMaxHits
-        {
-            get
-            {
-                return 255;
-            }
-        }
+        public override int LabelNumber => 1073380;//Folded Steel Reading Glasses
+        public override int BasePhysicalResistance => 20;
+        public override int BaseFireResistance => 10;
+        public override int BaseColdResistance => 10;
+        public override int BasePoisonResistance => 10;
+        public override int BaseEnergyResistance => 10;
+        public override int InitMinHits => 255;
+        public override int InitMaxHits => 255;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

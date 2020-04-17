@@ -6,7 +6,7 @@ namespace Server.Items
         public FetidEssenceStatuette()
             : base(0x2D94)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public FetidEssenceStatuette(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074504;
-            }
-        }// Fetid Essence Statuette
+        public override int LabelNumber => 1074504;// Fetid Essence Statuette
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

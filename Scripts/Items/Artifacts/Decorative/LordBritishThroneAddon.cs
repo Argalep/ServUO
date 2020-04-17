@@ -2,12 +2,12 @@ namespace Server.Items
 {
     public class LordBritishThroneAddon : BaseAddon
     {
-        public override bool IsArtifact { get { return true; } }
+        public override bool IsArtifact => true;
         [Constructable]
         public LordBritishThroneAddon()
         {
-            this.AddComponent(new AddonComponent(0x1526), 0, 0, 0);
-            this.AddComponent(new AddonComponent(0x1527), 0, -1, 0);
+            AddComponent(new AddonComponent(0x1526), 0, 0, 0);
+            AddComponent(new AddonComponent(0x1527), 0, -1, 0);
         }
 
         public LordBritishThroneAddon(Serial serial)
@@ -15,13 +15,7 @@ namespace Server.Items
         {
         }
 
-        public override BaseAddonDeed Deed
-        {
-            get
-            {
-                return new LordBritishThroneDeed();
-            }
-        }
+        public override BaseAddonDeed Deed => new LordBritishThroneDeed();
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -42,7 +36,7 @@ namespace Server.Items
         [Constructable]
         public LordBritishThroneDeed()
         {
-            this.LootType = LootType.Blessed;
+            LootType = LootType.Blessed;
         }
 
         public LordBritishThroneDeed(Serial serial)
@@ -50,20 +44,8 @@ namespace Server.Items
         {
         }
 
-        public override BaseAddon Addon
-        {
-            get
-            {
-                return new LordBritishThroneAddon();
-            }
-        }
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1073243;
-            }
-        }// Replica of Lord British's Throne - Museum of Vesper
+        public override BaseAddon Addon => new LordBritishThroneAddon();
+        public override int LabelNumber => 1073243;// Replica of Lord British's Throne - Museum of Vesper
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

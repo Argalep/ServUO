@@ -64,7 +64,7 @@ namespace Server.Engines.Points
         public abstract bool AutoAdd { get; }
         public abstract double MaxPoints { get; }
 
-        public virtual bool ShowOnLoyaltyGump { get { return true; } }
+        public virtual bool ShowOnLoyaltyGump => true;
 
         public PointsSystem()
         {
@@ -102,7 +102,7 @@ namespace Server.Engines.Points
                 GetEntry(from).Points = points;
 
                 Utility.PushColor(ConsoleColor.Green);
-                Console.WriteLine("Converted {0} points for {1} to {2}!", (int)points, from.Name, this.GetType().Name);
+                Console.WriteLine("Converted {0} points for {1} to {2}!", (int)points, from.Name, GetType().Name);
                 Utility.PopColor();
             }
         }

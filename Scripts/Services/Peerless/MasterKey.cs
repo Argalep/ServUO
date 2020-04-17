@@ -6,7 +6,7 @@ namespace Server.Items
 {
     public class MasterKey : PeerlessKey
     {
-        public override int LabelNumber { get { return 1074348; } } // master key
+        public override int LabelNumber => 1074348;  // master key
 
         [CommandProperty(AccessLevel.GameMaster)]
         public PeerlessAltar Altar { get; set; }
@@ -41,11 +41,11 @@ namespace Server.Items
                 }
                 else
                 {
-                    var p = Party.Get(from);
+                    Party p = Party.Get(from);
 
                     if (p != null)
                     {
-                        foreach (var m in p.Members.Select(x => x.Mobile).Where(m => m.InRange(from.Location, 25)))
+                        foreach (Mobile m in p.Members.Select(x => x.Mobile).Where(m => m.InRange(from.Location, 25)))
                         {
                             m.CloseGump(typeof(ConfirmEntranceGump));
                             m.SendGump(new ConfirmEntranceGump(Altar, m));

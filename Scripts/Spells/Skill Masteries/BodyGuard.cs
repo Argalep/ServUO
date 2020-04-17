@@ -14,12 +14,12 @@ namespace Server.Spells.SkillMasteries
                 9002
             );
 
-        public override int RequiredMana { get { return 40; } }
-        public override int DisruptMessage { get { return 1156103; } } // Bodyguard has expired.
-        public override bool BlocksMovement { get { return false; } }
-        public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds(1.0); } }
+        public override int RequiredMana => 40;
+        public override int DisruptMessage => 1156103;  // Bodyguard has expired.
+        public override bool BlocksMovement => false;
+        public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(1.0);
 
-        public override SkillName CastSkill { get { return SkillName.Parry; } }
+        public override SkillName CastSkill => SkillName.Parry;
 
         private double _Block;
 
@@ -36,7 +36,7 @@ namespace Server.Spells.SkillMasteries
                 return false;
             }
 
-            BodyGuardSpell spell = GetSpell(Caster, this.GetType()) as BodyGuardSpell;
+            BodyGuardSpell spell = GetSpell(Caster, GetType()) as BodyGuardSpell;
 
             if (spell != null)
             {
@@ -54,7 +54,7 @@ namespace Server.Spells.SkillMasteries
         {
             if (Caster is BaseCreature && ((BaseCreature)Caster).ControlMaster != null)
             {
-                var master = ((BaseCreature)Caster).ControlMaster;
+                Mobile master = ((BaseCreature)Caster).ControlMaster;
 
                 if (Caster.CanSee(master) && Caster.InRange(master.Location, 8))
                 {

@@ -6,8 +6,8 @@ namespace Server.Items
         public AriellesBauble()
             : base(0x23B)
         {
-            this.Weight = 2.0;
-            this.LootType = LootType.Blessed;
+            Weight = 2.0;
+            LootType = LootType.Blessed;
         }
 
         public AriellesBauble(Serial serial)
@@ -15,13 +15,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1073137;
-            }
-        }// A bauble
+        public override int LabelNumber => 1073137;// A bauble
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

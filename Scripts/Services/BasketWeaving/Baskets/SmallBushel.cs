@@ -7,7 +7,7 @@ public class SmallBushel : BaseContainer
     public SmallBushel()
         : base(0x09B1)
     {
-        this.Weight = 1.0;
+        Weight = 1.0;
     }
 
     public SmallBushel(Serial serial)
@@ -15,13 +15,7 @@ public class SmallBushel : BaseContainer
     {
     }
 
-    public override int LabelNumber
-    {
-        get
-        {
-            return 1112337;
-        }
-    }// small bushel
+    public override int LabelNumber => 1112337;// small bushel
 
     public override void Serialize(GenericWriter writer)
     {

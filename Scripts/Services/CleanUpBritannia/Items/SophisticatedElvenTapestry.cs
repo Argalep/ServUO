@@ -7,16 +7,10 @@
         public SophisticatedElvenTapestry()
             : base(0x2D70)
         {
-            this.Weight = 1;
+            Weight = 1;
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1151222;
-            }
-        }// sophisticated elven tapestry
+        public override int LabelNumber => 1151222;// sophisticated elven tapestry
 
         public SophisticatedElvenTapestry(Serial serial)
             : base(serial)

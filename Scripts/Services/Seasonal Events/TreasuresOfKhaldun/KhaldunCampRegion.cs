@@ -63,12 +63,12 @@ namespace Server.Engines.Khaldun
 
         public override void OnRegister()
         {
-            foreach (var p in _GuardLocs)
+            foreach (Point3D p in _GuardLocs)
             {
                 IPooledEnumerable eable = Map.GetMobilesInRange(p, 0);
                 bool empty = true;
 
-                foreach (var m in eable)
+                foreach (object m in eable)
                 {
                     if (m is KhaldunCampGuard)
                     {
@@ -81,7 +81,7 @@ namespace Server.Engines.Khaldun
 
                 if (empty)
                 {
-                    var guard = new KhaldunCampGuard();
+                    KhaldunCampGuard guard = new KhaldunCampGuard();
 
                     guard.MoveToWorld(p, Map);
                 }
@@ -89,12 +89,12 @@ namespace Server.Engines.Khaldun
 
             for (int i = 0; i < _BlockerLocs.Length; i++)
             {
-                foreach (var p in _BlockerLocs[i])
+                foreach (Point3D p in _BlockerLocs[i])
                 {
                     IPooledEnumerable eable = Map.GetItemsInRange(p, 0);
                     bool empty = true;
 
-                    foreach (var m in eable)
+                    foreach (object m in eable)
                     {
                         if (m is KhaldunCampBlocker)
                         {
@@ -107,7 +107,7 @@ namespace Server.Engines.Khaldun
 
                     if (empty)
                     {
-                        var blocker = new KhaldunCampBlocker(i);
+                        KhaldunCampBlocker blocker = new KhaldunCampBlocker(i);
 
                         blocker.MoveToWorld(p, Map);
                     }
@@ -130,8 +130,8 @@ namespace Server.Engines.Khaldun
     public class KhaldunCampGuard : BaseVendor
     {
         protected readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
-        protected override List<SBInfo> SBInfos { get { return m_SBInfos; } }
-        public override bool IsActiveVendor { get { return false; } }
+        protected override List<SBInfo> SBInfos => m_SBInfos;
+        public override bool IsActiveVendor => false;
 
         public override void InitSBInfo()
         {
@@ -190,8 +190,8 @@ namespace Server.Engines.Khaldun
     public class LeadInvestigator : BaseVendor
     {
         protected readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
-        protected override List<SBInfo> SBInfos { get { return m_SBInfos; } }
-        public override bool IsActiveVendor { get { return false; } }
+        protected override List<SBInfo> SBInfos => m_SBInfos;
+        public override bool IsActiveVendor => false;
 
         public override void InitSBInfo()
         {
@@ -369,7 +369,7 @@ namespace Server.Engines.Khaldun
         {
             IPooledEnumerable eable = Map.GetMobilesInRange(m.Location, 10);
 
-            foreach (var g in eable.OfType<KhaldunCampGuard>())
+            foreach (KhaldunCampGuard g in eable.OfType<KhaldunCampGuard>())
             {
                 if (pass)
                 {

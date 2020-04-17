@@ -19,13 +19,13 @@ namespace Server.Spells.SkillMasteries
                 9002
             );
 
-        public override double RequiredSkill { get { return 90; } }
-        public override double UpKeep { get { return 10; } }
-        public override int RequiredMana { get { return 24; } }
-        public override bool PartyEffects { get { return false; } }
-        public override double TickTime { get { return 2.0; } }
+        public override double RequiredSkill => 90;
+        public override double UpKeep => 10;
+        public override int RequiredMana => 24;
+        public override bool PartyEffects => false;
+        public override double TickTime => 2.0;
 
-        public override SkillName CastSkill { get { return SkillName.Discordance; } }
+        public override SkillName CastSkill => SkillName.Discordance;
 
         private int m_PropertyBonus;
         private double m_DamageChance;
@@ -39,7 +39,7 @@ namespace Server.Spells.SkillMasteries
 
         public override void OnCast()
         {
-            BardSpell spell = SkillMasterySpell.GetSpell(Caster, this.GetType()) as BardSpell;
+            BardSpell spell = SkillMasterySpell.GetSpell(Caster, GetType()) as BardSpell;
 
             if (spell != null)
             {
@@ -62,7 +62,7 @@ namespace Server.Spells.SkillMasteries
             {
                 Caster.SendMessage("You cannot target yourself!");
             }
-            else if (BardSpell.HasHarmfulEffects(m, this.GetType()))
+            else if (BardSpell.HasHarmfulEffects(m, GetType()))
             {
                 Caster.SendLocalizedMessage(1115772); //Your target is already under the effect of this spellsong.
             }

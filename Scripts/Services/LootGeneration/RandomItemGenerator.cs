@@ -9,7 +9,7 @@ namespace Server.Items
 {
     public class RandomItemGenerator
     {
-        public static bool Enabled { get { return true; } }
+        public static bool Enabled => true;
         public static int FeluccaLuckBonus { get; private set; }
         public static int FeluccaBudgetBonus { get; private set; }
 
@@ -119,7 +119,7 @@ namespace Server.Items
 
         public static void CheckBoss(BaseCreature bc, ref int budget)
         {
-            foreach (var entry in Entries)
+            foreach (BossEntry entry in Entries)
             {
                 if (entry.List.FirstOrDefault(t => t == bc.GetType() || bc.GetType().IsSubclassOf(t)) != null)
                 {

@@ -6,7 +6,7 @@ namespace Server.Items
         public AndrosGratitude()
             : base(10)
         {
-            this.LootType = LootType.Blessed;
+            LootType = LootType.Blessed;
         }
 
         public AndrosGratitude(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1075345;
-            }
-        }// Andros’ Gratitude
+        public override int LabelNumber => 1075345;// Andros’ Gratitude
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

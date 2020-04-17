@@ -5,9 +5,9 @@ namespace Server.Engines.ArenaSystem
 {
     public class ArenaExitBanner : Item
     {
-        public override bool ForceShowProperties { get { return true; } }
-        public override int LabelNumber { get { return 1116111; } } // Arena Exit Banner
-        public override bool HandlesOnMovement { get { return true; } }
+        public override bool ForceShowProperties => true;
+        public override int LabelNumber => 1116111;  // Arena Exit Banner
+        public override bool HandlesOnMovement => true;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public PVPArena Arena { get; set; }
@@ -43,7 +43,7 @@ namespace Server.Engines.ArenaSystem
             }
             else if (Arena != null)
             {
-                var duel = Arena.CurrentDuel;
+                ArenaDuel duel = Arena.CurrentDuel;
 
                 if (duel != null && duel.InPreFight)
                 {

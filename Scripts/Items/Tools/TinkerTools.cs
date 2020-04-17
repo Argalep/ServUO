@@ -10,14 +10,14 @@ namespace Server.Items
         public TinkerTools()
             : base(0x1EB8)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         [Constructable]
         public TinkerTools(int uses)
             : base(uses, 0x1EB8)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public TinkerTools(Serial serial)
@@ -25,13 +25,7 @@ namespace Server.Items
         {
         }
 
-        public override CraftSystem CraftSystem
-        {
-            get
-            {
-                return DefTinkering.CraftSystem;
-            }
-        }
+        public override CraftSystem CraftSystem => DefTinkering.CraftSystem;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -87,14 +81,14 @@ namespace Server.Items
         public TinkersTools()
             : base(0x1EBC)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         [Constructable]
         public TinkersTools(int uses)
             : base(uses, 0x1EBC)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public TinkersTools(Serial serial)
@@ -102,13 +96,7 @@ namespace Server.Items
         {
         }
 
-        public override CraftSystem CraftSystem
-        {
-            get
-            {
-                return DefTinkering.CraftSystem;
-            }
-        }
+        public override CraftSystem CraftSystem => DefTinkering.CraftSystem;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

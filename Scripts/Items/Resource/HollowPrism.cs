@@ -6,7 +6,7 @@ namespace Server.Items
         public HollowPrism()
             : base(0x2F5D)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public HollowPrism(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1072895;
-            }
-        }// hollow prism
+        public override int LabelNumber => 1072895;// hollow prism
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

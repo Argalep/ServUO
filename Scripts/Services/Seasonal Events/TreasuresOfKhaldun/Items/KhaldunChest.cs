@@ -7,8 +7,8 @@ namespace Server.Items
     {
         private Timer m_Timer;
 
-        public override int DefaultGumpID { get { return 0x49; } }
-        public bool CheckWhenHidden { get { return true; } }
+        public override int DefaultGumpID => 0x49;
+        public bool CheckWhenHidden => true;
 
         [Constructable]
         public KhaldunChest()
@@ -37,7 +37,7 @@ namespace Server.Items
 
             List<Item> contains = new List<Item>(Items);
 
-            foreach (var i in contains)
+            foreach (Item i in contains)
             {
                 i.Delete();
             }

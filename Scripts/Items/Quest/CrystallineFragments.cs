@@ -6,8 +6,8 @@ namespace Server.Items
         public CrystallineFragments()
             : base(0x223B)
         {
-            this.LootType = LootType.Blessed;
-            this.Hue = 0x47E;
+            LootType = LootType.Blessed;
+            Hue = 0x47E;
         }
 
         public CrystallineFragments(Serial serial)
@@ -15,13 +15,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1073160;
-            }
-        }// Crystalline Fragments
+        public override int LabelNumber => 1073160;// Crystalline Fragments
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

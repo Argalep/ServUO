@@ -6,7 +6,7 @@ namespace Server.Items
         public AcidProofRope()
             : base(0x20D)
         {
-            this.Hue = 0x3D1; // TODO check
+            Hue = 0x3D1; // TODO check
         }
 
         public AcidProofRope(Serial serial)
@@ -14,13 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074886;
-            }
-        }// Acid Proof Rope
+        public override int LabelNumber => 1074886;// Acid Proof Rope
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

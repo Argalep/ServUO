@@ -8,10 +8,10 @@ namespace Server.Items
         public CandelabraStand()
             : base(0xA29)
         {
-            this.Duration = TimeSpan.Zero; // Never burnt out
-            this.Burning = false;
-            this.Light = LightType.Circle225;
-            this.Weight = 20.0;
+            Duration = TimeSpan.Zero; // Never burnt out
+            Burning = false;
+            Light = LightType.Circle225;
+            Weight = 20.0;
         }
 
         public CandelabraStand(Serial serial)
@@ -19,20 +19,8 @@ namespace Server.Items
         {
         }
 
-        public override int LitItemID
-        {
-            get
-            {
-                return 0xB26;
-            }
-        }
-        public override int UnlitItemID
-        {
-            get
-            {
-                return 0xA29;
-            }
-        }
+        public override int LitItemID => 0xB26;
+        public override int UnlitItemID => 0xA29;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

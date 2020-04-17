@@ -12,8 +12,8 @@ namespace Server.Mobiles
             Name = NameList.RandomName("evil mage");
             Title = "the evil mage";
 
-            var robe = new Robe(Utility.RandomNeutralHue());
-            var sandals = new Sandals();
+            Robe robe = new Robe(Utility.RandomNeutralHue());
+            Sandals sandals = new Sandals();
 
             Body = 124;
 
@@ -69,34 +69,10 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool CanRummageCorpses
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool AlwaysMurderer
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override int Meat
-        {
-            get
-            {
-                return 1;
-            }
-        }
-        public override int TreasureMapLevel
-        {
-            get
-            {
-                return 1;
-            }
-        }
+        public override bool CanRummageCorpses => true;
+        public override bool AlwaysMurderer => true;
+        public override int Meat => 1;
+        public override int TreasureMapLevel => 1;
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Average);
